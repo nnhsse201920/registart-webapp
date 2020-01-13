@@ -4,7 +4,7 @@
     <head>
 
         {% if title %}
-        <title>Registart | {{ title }}</tilte>
+        <title>Registart | {{ title }}</title>
         {% else %}
         <title>Registart | Home</title>
         {% endif %}
@@ -20,6 +20,9 @@
     <body>
 
         {% block content %}
+        {% endblock %}
+
+        {% block scripts %}
         {% endblock %}
 
     </body>

@@ -8,8 +8,8 @@ def index():
 
 @app.route('/survey')
 def survey():
-    return render_template('survey.html')
+    return render_template('survey.html', title='Survey')
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html', title='Login')
