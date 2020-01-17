@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/about.css') }}">
-    <h1>Read this document:</h1>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'about.css') }}">
+    <center><h1>Read this document:</h1></center>
     <div class="aboutDoc">
         <center><img src="/static/about.png"></center>
     </div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <center><p>
+            {{ form.check() }} {{ form.check.label }}
+        </p></center>
+    </form>
 {% endblock %}
 

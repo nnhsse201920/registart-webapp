@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template
+from app.forms import CheckBox
 
 @app.route('/')
 @app.route('/index')
@@ -16,4 +17,5 @@ def login():
 
 @app.route('/survey/about')
 def about():
-    return render_template('about.html', title='About')
+    form = CheckBox();
+    return render_template('about.html', title='About', form=form)
