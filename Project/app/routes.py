@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, CheckBox
 from app.models import User
 
 
@@ -50,3 +50,8 @@ def register():
         flash('Account successfully created')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+ 
+@app.route('/survey/about')
+def about():
+    form = CheckBox();
+    return render_template('about.html', title='About', form=form)
