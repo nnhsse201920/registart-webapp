@@ -8,7 +8,10 @@ from app.models import User
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
     return render_template('index.html',current_user=current_user)
 
 @app.route('/survey')
@@ -51,7 +54,11 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
  
+
 @app.route('/survey/about')
+@login_required
 def about():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
     form = CheckBox();
     return render_template('about.html', title='About', form=form)
