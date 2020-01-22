@@ -2,7 +2,7 @@
 <html lang="en-US">
 
     <head>
-
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
         {% if title %}
         <title>Registart | {{ title }}</title>
         {% else %}
@@ -19,7 +19,7 @@
 
     <body>
 
-        <div>
+        <div id="navbar">
             Registart:
             <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_anonymous %}
