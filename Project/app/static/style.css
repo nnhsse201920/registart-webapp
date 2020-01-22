@@ -83,13 +83,13 @@ h1 {
 	background-color:orange;;
 	color: white;
     transition: 0.2s all;
-    padding: 20px;
+    padding: 26px;
     border: 20px;
     text-decoration: none;
     left:25px;
     height: 50px;
     width:125px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .create-account:hover {
