@@ -2,7 +2,7 @@
 <html lang="en-US">
 
     <head>
-
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
         {% if title %}
         <title>Registart | {{ title }}</title>
         {% else %}
@@ -19,18 +19,16 @@
 
     <body>
 
-        <div>
-            Registart:
-            <a href="{{ url_for('index') }}">Home</a>
+        <div id="navbar">
+            <a class="registart-button" href="{{ url_for('index') }}">Registart</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
             <a href="{{ url_for('register') }}">Register</a>
             {% else %}
-            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('about') }}">Take Survey</a>
             <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
         </div>
-        <hr>
 
         {% with messages = get_flashed_messages() %}
         {% if messages %}

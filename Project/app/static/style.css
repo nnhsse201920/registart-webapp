@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: #fdfdfd;
+}
+
+.aboutDoc img{
+    width: 70%;
+    height: auto;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.2s all;
+  }
+
+#navbar a.registart-button {
+    float: left;
+    display: block;
+    color: white;;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    background-color: #4CAF50;;
+    font-size: 20px;
+    transition: 0.2s all;
+  }
+
+#navbar a:hover {
+    background-color: rgb(132, 238, 132);
+  }
+  
+#navbar a.registart-button:hover {
+    background-color:  rgb(132, 238, 132);;
+  }
+
+.content {
+    padding: 16px;
+  }
+
+form {
+    padding: 15px;
+}
+
+h1 {
+    padding: 15px;
+}
+
+#create-account {
+    position:relative;
+	background-color:orange;;
+	color: white;
+    transition: 0.2s all;
+    padding: 10px;
+    border: 20px;
+    text-decoration: none;
+    left:10px;
+    height: 50px;
+    width:125px;
+    font-size: 16px;
+
+}
+
+#create-account:hover {
+    background-color:  yellow;
+    transform: scale(1.1) perspective(1px)
+  }
+
+#login{
+    position:relative;
+	background-color:#4CAF50;;
+	color: white;
+    transition: 0.2s all;
+    padding: 10px;
+    border: 90px;
+    text-decoration: none;
+    left:10px;
+    height: 50px;
+    width:135px;
+}
+
+#login:hover {
+    background-color:  rgb(132, 238, 132);
+    transform: scale(1.1) perspective(1px)
+}
+
+
