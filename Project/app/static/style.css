@@ -10,6 +10,11 @@ body {
     height: auto;
 }
 
+.rulesDoc img{
+    width: 70%;
+    height: auto;
+}
+
 #navbar {
     overflow: hidden;
     background-color: #fff;
