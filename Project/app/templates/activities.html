@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+n
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'activities.css') }}">
+
+<head> 
+<style>
+form
+{
+font-size: 18px;
+padding-left: 750px;
+margin: 0;  
+}
+</style>
+<style>
+h1 
+{ 
+text-decoration:underline;
+font-family: 'Judson', serif;
+font-size: 32px;
+margin: 0;
+text-align: center; 
+padding-top: 100px;
+} 
+</style> 
+<style>
+h2
+{
+font-size: 18px;
+padding-left: 750px;
+margin: 0;
+font-family: 'Archivo Black', sans-serif;
+}
+</style>
+<style>
+h3
+{
+font-size: 18px;
+padding-left: 750px;
+margin: 0;
+font-family: 'Archivo Black', sans-serif;
+}
+</style>
+<style>
+h4
+{
+font-size: 18px;
+padding-left: 750px;
+margin: 0;
+font-family: 'Archivo Black', sans-serif;
+}
+</style>
+</head>
+<body> 
+<h1> 
+Type NNHS groups you are/were in. These can be:
+</h1> 
+<h2> 
+-school clubs/teams
+</h2> 
+<h3>
+-friend groups
+</h3>
+<h4>
+-group projects
+</h4>
+
+<form action="">
+    1)<input type="text" name="1)" value=""><br>
+    2)<input type="text" name="2)" value=""><br>
+    3)<input type="text" name="3)" value=""><br>
+    4)<input type="text" name="4)" value=""><br>
+    5)<input type="text" name="5)" value=""><br>
+    6)<input type="text" name="6)" value=""><br>
+    7)<input type="text" name="7)" value=""><br>
+    8)<input type="text" name="8)" value=""><br>
+    9)<input type="text" name="9)" value=""><br>
+    10)<input type="text" name="10)" value=""><br>
+
+</form>
+ <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <center>
+            {{ form.check() }} {{ form.check.label }}
+</form>
+
+
+</body> 
+</html>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
