@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+    <center><h1>About Registart</h1></center>
+    <div class="rulesDoc">
+        <center><img src="/static/rules.png"></center>
+    </div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <center><p>
+            {{ form.check() }} {{ form.check.label }}
+        </p></center>
+    </form>
+{% endblock %}

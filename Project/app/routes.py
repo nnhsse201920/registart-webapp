@@ -62,3 +62,20 @@ def about():
         return redirect(url_for('login'))
     form = CheckBox();
     return render_template('about.html', title='About', form=form)
+
+@app.route('/survey/rules')
+@login_required
+def rules():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    return render_template('rules.html', title='Rules', form=form)
+
+@app.route('/survey/script')
+@login_required
+def script():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    return render_template('script.html', title='Script', form=form)
+

@@ -10,10 +10,20 @@ body {
     height: auto;
 }
 
+.rulesDoc img{
+    width: 70%;
+    height: auto;
+}
+
+.scriptDoc img{
+    width: 70%;
+    height: auto;
+}
+
 #navbar {
     overflow: hidden;
     background-color: #fff;
-    border-bottom: 0.5vh solid #0065ff;
+    border-bottom: 0.5vh solid #2B427C;
 }
 
 #navbar a {
@@ -23,7 +33,7 @@ body {
 .surveylink {
     float: right;
     display: block;
-    color:  #0065ff;
+    color:  #2B427C;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
@@ -32,14 +42,14 @@ body {
   }
 
 .surveylink:hover {
-    background-color:  #0065ff;
+    background-color:  #2B427C;
     color: #fff;
   }
 
 .loginlink {
     float: right;
     display: block;
-    color:  #0065ff;
+    color:  #2B427C;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
@@ -48,14 +58,14 @@ body {
   }
 
 .loginlink:hover {
-    background-color:  #0065ff;
+    background-color:  #2B427C;
     color: #fff;
   }
 
 .logoutlink {
     float: right;
     display: block;
-    color:  #0065ff;
+    color:  #2B427C;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
@@ -64,14 +74,14 @@ body {
   }
 
 .logoutlink:hover {
-    background-color:  #0065ff;
+    background-color:  #2B427C;
     color: #fff;
   }
 
 .registerlink {
     float: right;
     display: block;
-    color:  #0065ff;
+    color:  #2B427C;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
@@ -80,7 +90,7 @@ body {
   }
 
 .registerlink:hover {
-    background-color:  #0065ff;
+    background-color:  #2B427C;
     color: #fff;
   }
 
