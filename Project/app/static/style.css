@@ -16,6 +16,10 @@ body {
     border-bottom: 0.5vh solid #0065ff;
 }
 
+#navbar a {
+  text-decoration: none;
+}
+
 .surveylink {
     float: left;
     display: block;
@@ -83,80 +87,15 @@ body {
 .registart-logo{
     float:left;
     padding-top: 5px;
+    
+
 }
 
 .content {
     padding: 16px;
   }
 
-form {
-    padding: 15px;
+.container{
+  padding-top: 30px;
 }
-
-h1 {
-    padding: 15px;
-}
-
-#register {
-    position:relative;
-	background-color:rgb(9, 216, 9);
-	color: white;
-    transition: 0.2s all;
-    padding: 20px;
-    border: 20px;
-    text-decoration: none;
-    left:10px;
-    height: 50px;
-    width:125px;
-    font-size: 14px;
-
-}
-
-#register:hover {
-    background-color:  rgb(125, 235, 97);
-    cursor: pointer;
-  }
-
-.create-account {
-    position:relative;
-	background-color:rgb(9, 216, 9);
-	color: white;
-    transition: 0.2s all;
-    padding-right: 26px;
-    padding-left: 26px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border: 20px;
-    text-decoration: none;
-    left:25px;
-    height: 50px;
-    width:125px;
-    font-size: 12px;
-}
-
-.create-account:hover {
-    background-color:  rgb(125, 235, 97);
-    cursor: pointer;
-  }
-
-#login{
-    position:relative;
-	background-color:#0065ff;
-	color: white;
-    transition: 0.2s all;
-    padding: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border: 90px;
-    text-decoration: none;
-    left:10px;
-    height: 50px;
-    width:135px;
-}
-
-#login:hover {
-    background-color:  rgb(94, 209, 224);
-    cursor: pointer;
-}
-
 
