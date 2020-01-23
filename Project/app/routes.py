@@ -71,3 +71,11 @@ def rules():
     form = CheckBox();
     return render_template('rules.html', title='Rules', form=form)
 
+@app.route('/survey/script')
+@login_required
+def script():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    return render_template('script.html', title='Script', form=form)
+
