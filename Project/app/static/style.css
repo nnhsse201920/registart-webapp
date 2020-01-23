@@ -15,6 +15,11 @@ body {
     height: auto;
 }
 
+.scriptDoc img{
+    width: 70%;
+    height: auto;
+}
+
 #navbar {
     overflow: hidden;
     background-color: #fff;
