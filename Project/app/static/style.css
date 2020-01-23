@@ -12,107 +12,90 @@ body {
 
 #navbar {
     overflow: hidden;
-    background-color: #333;
+    background-color: #fff;
+    border-bottom: 0.5vh solid #0065ff;
 }
 
 #navbar a {
+  text-decoration: none;
+}
+
+.surveylink {
     float: left;
     display: block;
-    color: white;
+    color:  #0065ff;
     text-align: center;
-    padding: 14px;
     text-decoration: none;
     font-size: 20px;
     transition: 0.2s all;
+    padding: 25px;
   }
 
-#navbar a.registart-button {
-    float: left;
+.surveylink:hover {
+    background-color:  #0065ff;
+    color: #fff;
+  }
+
+.loginlink {
+    float: right;
     display: block;
-    color: white;;
+    color:  #0065ff;
     text-align: center;
-    padding: 14px;
     text-decoration: none;
-    background-color: #4CAF50;;
     font-size: 20px;
     transition: 0.2s all;
+    padding: 25px;
   }
 
-#navbar a:hover {
-    background-color: rgb(132, 238, 132);
+.loginlink:hover {
+    background-color:  #0065ff;
+    color: #fff;
   }
-  
-#navbar a.registart-button:hover {
-    background-color:  rgb(132, 238, 132);;
+
+.logoutlink {
+    float: right;
+    display: block;
+    color:  #0065ff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.2s all;
+    padding: 25px;
   }
+
+.logoutlink:hover {
+    background-color:  #0065ff;
+    color: #fff;
+  }
+
+.registerlink {
+    float: right;
+    display: block;
+    color:  #0065ff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.2s all;
+    padding: 25px;
+  }
+
+.registerlink:hover {
+    background-color:  #0065ff;
+    color: #fff;
+  }
+
+.registart-logo{
+    float:left;
+    padding-top: 5px;
+    
+
+}
 
 .content {
     padding: 16px;
   }
 
-form {
-    padding: 15px;
+.container{
+  padding-top: 30px;
 }
-
-h1 {
-    padding: 15px;
-}
-
-#register {
-    position:relative;
-	background-color:orange;;
-	color: white;
-    transition: 0.2s all;
-    padding: 20px;
-    border: 20px;
-    text-decoration: none;
-    left:10px;
-    height: 50px;
-    width:125px;
-    font-size: 14px;
-
-}
-
-#register:hover {
-    background-color:  rgb(255, 208, 0);
-    cursor: pointer;
-  }
-
-.create-account {
-    position:relative;
-	background-color:orange;;
-	color: white;
-    transition: 0.2s all;
-    padding: 20px;
-    border: 20px;
-    text-decoration: none;
-    left:25px;
-    height: 50px;
-    width:125px;
-    font-size: 14px;
-}
-
-.create-account:hover {
-    background-color:  rgb(255, 208, 0);
-    cursor: pointer;
-  }
-
-#login{
-    position:relative;
-	background-color:#4CAF50;;
-	color: white;
-    transition: 0.2s all;
-    padding: 10px;
-    border: 90px;
-    text-decoration: none;
-    left:10px;
-    height: 50px;
-    width:135px;
-}
-
-#login:hover {
-    background-color:  rgb(132, 238, 132);
-    cursor: pointer;
-}
-
 
