@@ -21,7 +21,7 @@ body {
 }
 
 .surveylink {
-    float: left;
+    float: right;
     display: block;
     color:  #0065ff;
     text-align: center;
@@ -86,9 +86,7 @@ body {
 
 .registart-logo{
     float:left;
-    padding-top: 5px;
-    
-
+    padding-top: 10px;
 }
 
 .content {

@@ -20,8 +20,8 @@
             <a class="loginlink" href="{{ url_for('login') }}">Login</a>
             <a class="registerlink" href="{{ url_for('register') }}">Register</a>
             {% else %}
-            <a class="surveylink" href="{{ url_for('about') }}">Start Survey</a>
             <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>
+            <a class="surveylink" href="{{ url_for('about') }}">Start Survey</a>
             {% endif %}
     </div>
 
