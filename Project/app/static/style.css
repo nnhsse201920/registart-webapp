@@ -21,7 +21,7 @@ body {
 }
 
 .surveylink {
-    float: left;
+    float: right;
     display: block;
     color:  #2B427C;
     text-align: center;
