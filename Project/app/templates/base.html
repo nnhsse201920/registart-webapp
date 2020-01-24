@@ -21,7 +21,13 @@
             <a class="registerlink" href="{{ url_for('register') }}">Register</a>
             {% else %}
             <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>
-            <a class="surveylink" href="{{ url_for('about') }}">Start Survey</a>
+
+            {% if isOnSurvey %}
+            <a class="surveylink" href="{{ url_for('index') }}">Exit Survey</a>
+            {% else %}
+            <a class="surveylink" href="{{ url_for('about') }}">Survey</a>
+            {% endif %}
+            
             {% endif %}
     </div>
 

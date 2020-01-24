@@ -96,9 +96,7 @@ body {
 
 .registart-logo{
     float:left;
-    padding-top: 5px;
-    
-
+    padding-top: 10px;
 }
 
 .content {
@@ -108,4 +106,3 @@ body {
 .container{
   padding-top: 30px;
 }
-

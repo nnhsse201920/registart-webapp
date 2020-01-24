@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, CheckBox
+from app.forms import LoginForm, RegistrationForm, CheckBox, ActivitiesForm
 from app.models import User
 
 
@@ -12,7 +12,7 @@ from app.models import User
 def index():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
-    return render_template('index.html',current_user=current_user)
+    return render_template('index.html',current_user=current_user,isOnSurvey=False)
 
 @app.route('/survey')
 def survey():
@@ -55,27 +55,42 @@ def register():
     return render_template('register.html', title='Register', form=form)
  
 
-@app.route('/survey/about')
+@app.route('/survey/about',methods=['GET', 'POST'])
 @login_required
 def about():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('about.html', title='About', form=form)
+    if form.validate():
+        return redirect(url_for('activities'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('about.html', title='About', form=form,isOnSurvey=True)
 
-@app.route('/survey/rules')
+@app.route('/survey/rules',methods=['GET', 'POST'])
 @login_required
 def rules():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('rules.html', title='Rules', form=form)
+    return render_template('rules.html', title='Rules', form=form,isOnSurvey=True)
 
-@app.route('/survey/script')
+@app.route('/survey/script',methods=['GET', 'POST'])
 @login_required
 def script():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('script.html', title='Script', form=form)
+    flash('Please complete this step before proceeding.')
+    return render_template('script.html', title='Script', form=form,isOnSurvey=True)
 
+@app.route('/survey/activities',methods=['GET', 'POST'])
+@login_required
+def activities():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    checkbox = CheckBox()
+    form = ActivitiesForm()
+    if form.validate_on_submit():
+        return redirect(url_for('script'))
+    return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)

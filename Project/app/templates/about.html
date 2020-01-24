@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
@@ -7,10 +8,12 @@
         <center><img src="/static/about.png"></center>
     </div>
     <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <center><p>
-            {{ form.check() }} {{ form.check.label }}
-        </p></center>
+        {{ form.csrf_token() }}
+        <center>
+            <p>{{ wtf.form_field(form.check) }}</p>
+        </center>
+        <input type=submit class='btn btn-info pull-right' value=" Next " style="margin: 25px;margin-top: 25px;">
     </form>
+    
 {% endblock %}
 
