@@ -43,4 +43,4 @@ class ActivitiesForm(FlaskForm):
     activity7 = StringField('Activity 7')
     activity8 = StringField('Activity 8')
     submit = SubmitField('Sign In')
-
+    check = BooleanField('I have completed this step', validators=[DataRequired()])

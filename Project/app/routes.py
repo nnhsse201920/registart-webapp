@@ -61,6 +61,8 @@ def about():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
+    if form.validate():
+        return redirect(url_for('activities'))
     return render_template('about.html', title='About', form=form,isOnSurvey=True)
 
 @app.route('/survey/rules',methods=['GET', 'POST'])
