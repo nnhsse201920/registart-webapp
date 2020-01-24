@@ -63,6 +63,8 @@ def about():
     form = CheckBox();
     if form.validate():
         return redirect(url_for('activities'))
+    else:
+        flash('Please complete this step before proceeding.')
     return render_template('about.html', title='About', form=form,isOnSurvey=True)
 
 @app.route('/survey/rules',methods=['GET', 'POST'])
@@ -79,6 +81,7 @@ def script():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
+    flash('Please complete this step before proceeding.')
     return render_template('script.html', title='Script', form=form,isOnSurvey=True)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])

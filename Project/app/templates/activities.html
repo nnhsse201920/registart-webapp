@@ -3,14 +3,16 @@
 
 {% block app_content %}
     <h1>Your Activities</h1>
-    <h2>Type NNHS groups you are/were in. These can be:</h2>
+    <h2>Enter up to 8 activities you are involved in, such as: 
+    </h2>
     <h3>
-        -School clubs/teams
-        <br>
-        -Friend groups
-        <br>
-        -Group projects
-        <br>
+        Sports Teams
+    </h3>
+    <h3>
+        Extracurricular Activities
+    </h3>
+    <h3>
+        Out of School Activities
     </h3>
     <form action="" method="post" class="form" role="form">
         {{ form.csrf_token() }}
@@ -27,11 +29,11 @@
 
     </d1>
     <p>
-        <input type=submit class='btn btn-info pull-right' value=" Next " style="margin-bottom: 25px;">
+        <input type=submit class='btn btn-info pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 25px;">
     </p>
     </form>
     <p>
-        <a href="{{ url_for('about') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;"> Back </a>
+        <a href="{{ url_for('about') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Back </a>
     </p>
 
 {% endblock %}
