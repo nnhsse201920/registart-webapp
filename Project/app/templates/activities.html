@@ -18,7 +18,7 @@
         {{ wtf.form_field(form.activity1, style="width:500px") }}
         {{ wtf.form_field(form.activity2, style="width:500px") }}
         {{ wtf.form_field(form.activity3, style="width:500px") }}
-        {{wtf.form_field(form.activity4, style="width:500px") }}
+        {{ wtf.form_field(form.activity4, style="width:500px") }}
         {{ wtf.form_field(form.activity5, style="width:500px") }}
         {{ wtf.form_field(form.activity6, style="width:500px") }}
         {{ wtf.form_field(form.activity7, style="width:500px") }}
@@ -26,8 +26,10 @@
 
     </d1>
     <p>
-        <a href="{{ url_for('about') }}" class="btn btn-default pull-left" role="button" style="margin: 25px;">Back</a>
+        
+        <a href="{{ url_for('about') }}" class="btn btn-default pull-left" role="button" style="margin-top: 25px;">Back</a>
         <input type=submit class='btn btn-info pull-right' value="Next" style="margin: 25px;">
+        
     </p>
     </form>
 

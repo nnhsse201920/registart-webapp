@@ -12,7 +12,7 @@ from app.models import User
 def index():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
-    return render_template('index.html',current_user=current_user)
+    return render_template('index.html',current_user=current_user,isOnSurvey=False)
 
 @app.route('/survey')
 def survey():
@@ -61,7 +61,7 @@ def about():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('about.html', title='About', form=form)
+    return render_template('about.html', title='About', form=form,isOnSurvey=True)
 
 @app.route('/survey/rules',methods=['GET', 'POST'])
 @login_required
@@ -69,7 +69,7 @@ def rules():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('rules.html', title='Rules', form=form)
+    return render_template('rules.html', title='Rules', form=form,isOnSurvey=True)
 
 @app.route('/survey/script',methods=['GET', 'POST'])
 @login_required
@@ -77,7 +77,7 @@ def script():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('script.html', title='Script', form=form)
+    return render_template('script.html', title='Script', form=form,isOnSurvey=True)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
@@ -88,4 +88,4 @@ def activities():
     form = ActivitiesForm()
     if form.validate_on_submit():
         return redirect(url_for('script'))
-    return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form)
+    return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)
