@@ -81,7 +81,10 @@ def script():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    flash('Please complete this step before proceeding.')
+    if form.validate():
+        return redirect(url_for('index'))
+    else:
+        flash('Please complete this step before proceeding.')
     return render_template('script.html', title='Script', form=form,isOnSurvey=True)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
