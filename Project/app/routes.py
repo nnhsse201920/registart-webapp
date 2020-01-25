@@ -73,7 +73,11 @@ def rules():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('rules.html', title='Rules', form=form,isOnSurvey=True)
+    if form.validate():
+        return redirect(url_for('script'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('rules.html', title='Illinois Registration Rules', form=form,isOnSurvey=True)
 
 @app.route('/survey/script',methods=['GET', 'POST'])
 @login_required
@@ -95,5 +99,5 @@ def activities():
     checkbox = CheckBox()
     form = ActivitiesForm()
     if form.validate_on_submit():
-        return redirect(url_for('script'))
+        return redirect(url_for('rules'))
     return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)
