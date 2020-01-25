@@ -86,10 +86,22 @@ def script():
         return redirect(url_for('login'))
     form = CheckBox();
     if form.validate():
-        return redirect(url_for('index'))
+        return redirect(url_for('targets'))
     else:
         flash('Please complete this step before proceeding.')
     return render_template('script.html', title='Script', form=form,isOnSurvey=True)
+
+@app.route('/survey/targets',methods=['GET', 'POST'])
+@login_required
+def targets():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    if form.validate():
+        return redirect(url_for('index'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('targets.html', title='Registration Targets', form=form,isOnSurvey=True)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
@@ -101,3 +113,4 @@ def activities():
     if form.validate_on_submit():
         return redirect(url_for('rules'))
     return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)
+
