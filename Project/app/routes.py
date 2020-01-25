@@ -98,7 +98,7 @@ def targets():
         return redirect(url_for('login'))
     form = CheckBox();
     if form.validate():
-        return redirect(url_for('index'))
+        return redirect(url_for('manager'))
     else:
         flash('Please complete this step before proceeding.')
     return render_template('targets.html', title='Registration Targets', form=form,isOnSurvey=True)
@@ -114,3 +114,14 @@ def activities():
         return redirect(url_for('rules'))
     return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)
 
+@app.route('/survey/manager',methods=['GET', 'POST'])
+@login_required
+def manager():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    if form.validate():
+        return redirect(url_for('index'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('manager.html', title='Target Contact Manager', form=form,isOnSurvey=True)
