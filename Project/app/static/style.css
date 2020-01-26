@@ -135,3 +135,31 @@ p{
   font-weight: bold;
   text-decoration-line: underline;
 }
+
+#numberlist{
+  float: left;
+}
+
+#boldquestion{
+  font-weight: bold;
+}
+
+#explanation{
+  color: rgb(133, 156, 156);
+}
+
+#boldresponse{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#boldprompt{
+  font-weight: bold;
+  font-size: 15px;
+  float:left
+}
+
+#boldtip{
+  font-weight: bold;
+  float:left
+}
