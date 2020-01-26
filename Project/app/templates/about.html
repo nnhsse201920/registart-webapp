@@ -3,16 +3,41 @@
 
 {% block app_content %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
-    <center><h1>About Registart</h1></center>
-    <div class="aboutDoc">
-        <center><img src="/static/about.png"></center>
-    </div>
+    
+    <center><h1 id="aboutHeader">Introduction to RegiStart</h1></center>
+
+    <p id="boldtext">What is the goal of RegiStart?</p>
+    <p>To increase youth voter registration from 50% to 80%.</p>
+    <p id="boldtext">What is RegiStart?</p>
+    <p>RegiStart is a program that helps you register your entire senior class to vote.</p>
+    <p id="boldtext">How does RegiStart work?</p>
+    <p>In an intensive one-week drive, RegiStart teaches you the rules of voter registration, 
+        how to ask others to get registered, and then connects you with students you know to show them how to get registered to vote.</p>
+    <p id="boldtext">What impact can I have?</p>
+    <p>At the end of your RegiStart Drive, you will have registered 15-20 of your peers.</p>
+    <p id="boldtext">What do I do as an Organizer?</p>
+    <p>
+        1. Identify how well you know your classmates.<br>
+        2. Learn how to get these classmates registered.<br>
+        3. Start registering!</p>
+    <p id="boldtext">Is data entered in RegiStart shared with other organizations?</p>
+    <p>All data remains with RegiStart.</p>
+
+
     <form action="" method="post" novalidate>
         {{ form.csrf_token() }}
         <center>
-            <p>{{ wtf.form_field(form.check) }}</p>
+            <p>{{ wtf.form_field(form.check, style="padding:20px") }}</p>
         </center>
-        <input type=submit class='btn btn-info pull-right' value=" Next " style="margin: 25px;margin-top: 25px;">
+        <p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                  0%
+                </div>
+              </div>
+        <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 25px;">
+        </p>
     </form>
     
 {% endblock %}

@@ -73,7 +73,11 @@ def rules():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    return render_template('rules.html', title='Rules', form=form,isOnSurvey=True)
+    if form.validate():
+        return redirect(url_for('script'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('rules.html', title='Illinois Registration Rules', form=form,isOnSurvey=True)
 
 @app.route('/survey/script',methods=['GET', 'POST'])
 @login_required
@@ -81,8 +85,23 @@ def script():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = CheckBox();
-    flash('Please complete this step before proceeding.')
+    if form.validate():
+        return redirect(url_for('targets'))
+    else:
+        flash('Please complete this step before proceeding.')
     return render_template('script.html', title='Script', form=form,isOnSurvey=True)
+
+@app.route('/survey/targets',methods=['GET', 'POST'])
+@login_required
+def targets():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    if form.validate():
+        return redirect(url_for('manager'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('targets.html', title='Registration Targets', form=form,isOnSurvey=True)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
@@ -92,5 +111,17 @@ def activities():
     checkbox = CheckBox()
     form = ActivitiesForm()
     if form.validate_on_submit():
-        return redirect(url_for('script'))
+        return redirect(url_for('rules'))
     return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)
+
+@app.route('/survey/manager',methods=['GET', 'POST'])
+@login_required
+def manager():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    form = CheckBox();
+    if form.validate():
+        return redirect(url_for('index'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('manager.html', title='Target Contact Manager', form=form,isOnSurvey=True)
