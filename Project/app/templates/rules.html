@@ -4,10 +4,45 @@
 
 {% block app_content %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+        
     <center><h1 id="aboutHeader">Illinois Registration Rules</h1></center>
-    <div class="scriptDoc">
-        <center><img src="/static/rules.png"></center>
-    </div>
+
+    <p id="descheader">Important Links</p>
+
+    <p>Online Registration - <a href="https://ova.elections.il.gov/Step0.aspx">https://ova.elections.il.gov/Step0.aspx</a></p>
+    <p>Check if you are registered - <a href="https://ova.elections.il.gov/RegistrationLookup.aspx">https://ova.elections.il.gov/RegistrationLookup.aspx</a></p>
+
+    <p id="descheader">FAQ</p>
+
+    <p id="boldtext">Q: What information does a person need to get registered?</p>
+    <p>A:</p>
+    <ul>
+        <li>Name</li>
+        <li>Address</li>
+        <li>Driver's license or last 4 digits of SSN</li>
+    </ul>
+    
+    <p id="boldtext">Q: Do you need to be 18 years old to register to vote?</p>
+    <p>A: No! So long as you will be 18 by election day (November 3, 2020), you can get registered.</p>
+
+    <p id="boldtext">Q: Do you need to be a citizen to get registered to vote?></p>
+    <p>A: Yes! If you are not a citizen of the United States, you are not eligible to get registered.</p>
+
+    <p id="boldtext">Q: Are there any other restrictions on getting registered?</p>
+    <p>A: Nope! As long as you are a citizen and will be 18 by November 3, 2020, you can get registered.</p>
+
+    <p id="boldtext">Q: Can you get registered to vote online?</p>
+    <p>A: Yes! Visit <a href="https://ova.elections.il.gov/Step0.aspx">https://ova.elections.il.gov/Step0.aspx</a> to register online.</p>
+
+    <p id="boldtext">Q: How can you determine if somebody is registered to vote or not?</p>
+    <p>A: Visit <a href="https://ova.elections.il.gov/RegistrationLookup.aspx">https://ova.elections.il.gov/RegistrationLookup.aspx</a> 
+        and enter their name, birthday, the zipcode of where they would be registered and their street address (if you are 
+        checking somebody's registration for them, be sure to ask for this information in advance).</p>
+    
+    <p id="boldtext">Q: Do you need to re-register between elections?</p>
+    <p>A: Typically, no. The only time you need to re-register is when your permanent home address changes (e.g. when your family moves to a new city).</p>
+
+
     <form action="" method="post" novalidate>
         {{ form.csrf_token() }}
         <center>
