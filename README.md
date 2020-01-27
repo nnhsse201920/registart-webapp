@@ -26,13 +26,13 @@ $ venv/scripts/activate <br/>
 <strong>MacOS:</strong><br/>
 $ python3 -m venv venv <br/>
 $ pip3 install -r req.txt <br/>
-$ source scripts/bin/activate <br/>
+$ source venv/bin/activate <br/>
 
 # Running the application 
-Both OS: <br/>
+<strong>Both OS: </strong><br/>
 $ flask run <br/>
 
-The terminal displays a link to localhost (Local server) <br/>
+The terminal displays a link to localhost (A local server) <br/>
 CTRL+Click to launch the link and run the application, the index page will display. <br/>
 
 ## Team Members
