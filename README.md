@@ -17,12 +17,12 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 # Configuration 
 Open terminal and cd to the 'Project' folder<br/>
 Run these commands: <br/>
-Windows:<br/>
+<strong>Windows:</strong><br/>
 $ python -m venv venv <br/>
 $ pip install -r req.txt <br/>
 $ venv/scripts/activate <br/>
 
-MacOS:<br/>
+<strong>MacOS:</strong><br/>
 $ python3 -m venv venv <br/>
 $ pip3 install -r req.txt <br/>
 $ source scripts/bin/activate <br/>
