@@ -1,7 +1,7 @@
 # Registart Survey Web App
 
 # Overview
-A simple and brief survey for student organizers to get their peers to vote.
+A simple and brief survey developed with the Flask Microframework for Registart, a nonprofit startup that allows high school seniors to encourage their peers to register to vote.
 
 # Functionality
 Students can take the survey by inputting their information regarding their relationships with their peers in their NNHS activities and the senior class and obtain a list of 20 students that they should encourage to register to vote.
