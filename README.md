@@ -21,22 +21,22 @@ Run these commands: <br/>
 <br/>
 <strong>Windows:</strong><br/>
 ```
-$ python -m venv venv <br/>
-$ pip install -r req.txt <br/>
-$ venv/scripts/activate <br/>
+$ python -m venv venv 
+$ pip install -r req.txt 
+$ venv/scripts/activate 
 ```
 
 <strong>MacOS:</strong><br/>
 ```
-$ python3 -m venv venv <br/>
-$ pip3 install -r req.txt <br/>
-$ source venv/bin/activate <br/>
+$ python3 -m venv venv 
+$ pip3 install -r req.txt 
+$ source venv/bin/activate 
 ```
 
 # Running the application
 <strong>Both Operating Systems: </strong><br/>
 ```
-$ flask run <br/>
+$ flask run
 ```
 
 The terminal displays a link to localhost (A local server) <br/>
