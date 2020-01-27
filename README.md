@@ -7,14 +7,15 @@ A simple and brief survey developed with the Flask Microframework for Registart,
 Students can take the survey by inputting their information regarding their relationships with their peers in their NNHS activities and the senior class and obtain a list of 20 students that they should encourage to register to vote.
 
 # How it works
-By taking this survey, sudent organizers will be able the know exactly what Registart is, the Illinois Voter Registration Process, and a guide on how to encourage their peers to vote. Students will enter their activities and their relationships to their senior class peers and obtain a list of 20 student targets for them to encourage to register.
+By taking this survey, sudent organizers will be able the know exactly what Registart is, the Illinois Voter Registration Process, and a guide on how to encourage their peers to vote. Students will enter their activities and their relationships to their senior class peers and obtain a list of 20 student targets.
 
 # Platform requirements
 - Windows 7 or above <br/>
-- MacOS compatible <br/>
-- VSCode terminal needed 
+- MacOS and Unix compatible <br/>
+- Terminal needed 
 
 # Configuration 
+Ensure that [Python] (https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) is installed.
 Open terminal and cd to the 'Project' folder<br/>
 Run these commands: <br/>
 <br/>
