@@ -10,29 +10,29 @@ Students can take the survey by inputting their information regarding their rela
 By taking this survey, sudent organizers will be able the know exactly what Registart is, the Illinois Voter Registration Process, and a guide on how to encourage their peers to vote. Students will enter their activities and their relationships to their senior class peers and obtain a list of 20 student targets for them to encourage to register.
 
 # Platform requirements
-- Windows 7 or above
-- MacOS compatible
-- VSCode terminal needed
+- Windows 7 or above <br/>
+- MacOS compatible <br/>
+- VSCode terminal needed 
 
 # Configuration 
-Open terminal and cd to the 'Project' folder
-Run these commands:
-Windows:
-$ python -m venv venv
-$ pip install -r req.txt
-$ venv/scripts/activate
+Open terminal and cd to the 'Project' folder<br/>
+Run these commands: <br/>
+Windows:<br/>
+$ python -m venv venv <br/>
+$ pip install -r req.txt <br/>
+$ venv/scripts/activate <br/>
 
-MacOS:
-$ python3 -m venv venv
-$ pip3 install -r req.txt
-$ source scripts/bin/activate
+MacOS:<br/>
+$ python3 -m venv venv <br/>
+$ pip3 install -r req.txt <br/>
+$ source scripts/bin/activate <br/>
 
-# Running the application
-Both OS:
-$ flask run
+# Running the application 
+Both OS: <br/>
+$ flask run <br/>
 
-The terminal displays a link to localhost (Local server)
-CTRL+Click to launch the link and run the application, the index page will display.
+The terminal displays a link to localhost (Local server) <br/>
+CTRL+Click to launch the link and run the application, the index page will display. <br/>
 
 ## Team Members
 * Tom Carsello
