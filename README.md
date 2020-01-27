@@ -16,8 +16,8 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 
 # Configuration 
 Ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) is installed. <br/>
-Open terminal and cd to the 'Project' folder<br/>
-Run these commands: <br/>
+Open terminal and ``cd`` to the 'Project' folder<br/>
+Input these commands in the terminal: <br/>
 <br/>
 <strong>Windows:</strong><br/>
 ```
