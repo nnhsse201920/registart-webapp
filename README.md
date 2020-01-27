@@ -21,7 +21,7 @@ Input these commands in the terminal: <br/>
 <br/>
 <strong>Windows:</strong><br/>
 ```
-$ python -m venv venv   # setup virtual environment for Python 
+$ python -m venv venv       # create a virtual environment for Python 
 $ pip install -r req.txt    # install all packages needed for the app in one line
 $ venv/scripts/activate     # activate virtual environment for Flask to run
 ```
