@@ -36,7 +36,7 @@ $ source venv/bin/activate
 # Running the Application
 <strong>Both Operating Systems: </strong><br/>
 ```
-$ flask run
+(venv) $ flask run
 ```
 
 The terminal displays a link to localhost (A local server) <br/>
