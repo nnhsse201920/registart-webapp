@@ -40,7 +40,10 @@ $ flask run
 ```
 
 The terminal displays a link to localhost (A local server) <br/>
-CTRL+Click to launch the link and run the application, the index page will display. <br/>
+``` 
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+CTRL+Click to launch the link and run the application and the index page will display. <br/>
 
 ## Team Members
 * Tom Carsello
