@@ -17,6 +17,7 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 # Configuration 
 Open terminal and cd to the 'Project' folder<br/>
 Run these commands: <br/>
+<br/>
 <strong>Windows:</strong><br/>
 $ python -m venv venv <br/>
 $ pip install -r req.txt <br/>
