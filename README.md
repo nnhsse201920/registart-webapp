@@ -20,18 +20,24 @@ Open terminal and cd to the 'Project' folder<br/>
 Run these commands: <br/>
 <br/>
 <strong>Windows:</strong><br/>
+```
 $ python -m venv venv <br/>
 $ pip install -r req.txt <br/>
 $ venv/scripts/activate <br/>
+```
 
 <strong>MacOS:</strong><br/>
+```
 $ python3 -m venv venv <br/>
 $ pip3 install -r req.txt <br/>
 $ source venv/bin/activate <br/>
+```
 
-# Running the application 
-<strong>Both OS: </strong><br/>
+# Running the application
+<strong>Both Operating Systems: </strong><br/>
+```
 $ flask run <br/>
+```
 
 The terminal displays a link to localhost (A local server) <br/>
 CTRL+Click to launch the link and run the application, the index page will display. <br/>
