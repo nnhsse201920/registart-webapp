@@ -6,10 +6,10 @@ A simple and brief survey developed with the Flask Microframework for Registart,
 # Functionality
 Students can take the survey by inputting their information regarding their relationships with their peers in their NNHS activities and the senior class and obtain a list of 20 students that they should encourage to register to vote.
 
-# How it works
+# How it Works
 By taking this survey, sudent organizers will be able the know exactly what Registart is, the Illinois Voter Registration Process, and a guide on how to encourage their peers to vote. Students will enter their activities and their relationships to their senior class peers and obtain a list of 20 student targets.
 
-# Platform requirements
+# Platform Requirements
 - Windows 7 or above <br/>
 - MacOS and Unix compatible <br/>
 - Terminal needed 
@@ -33,7 +33,7 @@ $ pip3 install -r req.txt
 $ source venv/bin/activate 
 ```
 
-# Running the application
+# Running the Application
 <strong>Both Operating Systems: </strong><br/>
 ```
 $ flask run
