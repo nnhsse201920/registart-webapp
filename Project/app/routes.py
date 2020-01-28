@@ -125,3 +125,11 @@ def manager():
     else:
         flash('Please complete this step before proceeding.')
     return render_template('manager.html', title='Target Contact Manager', form=form,isOnSurvey=True)
+
+@app.route('/survey/connections',methods=['GET', 'POST'])
+@login_required
+def connections():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    check = CheckBox()
+    return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,check=check)
