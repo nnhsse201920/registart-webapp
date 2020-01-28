@@ -5,10 +5,11 @@
     <h1 id="aboutHeader">Connections</h1>
     <h2 font-weight:bold;">Type the full names of senior friends and acquaintances from each group.</h2>
 
-    <form action="action.php" method="post" class="form" role="form">
+    <form action="" method="post" class="form" role="form">
         {{ check.csrf_token() }}
 
-        <h3 style="font-weight: bold;">Close Friends</h3>
+    <div style="float:left;">
+        <h3 id="activitiesheader">Close Friends</h3>
         {% for x in range(20) %}
         {{x+1}}.&nbsp;
         <select class="seniors" name="Seniors">
@@ -22,6 +23,24 @@
         </select>
         <br>
         {% endfor %}
+    </div>
+
+    <div>
+        <h3 id="activitiesheader" style="padding-top:20px">Friends from lunch/class</h3>
+        {% for x in range(20) %}
+        {{x+1}}.&nbsp;
+        <select class="seniors" name="Seniors">
+            <option value="none" selected disabled hidden> 
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </option> 
+            <option value="Luke Zhang">Luke Zhang</option>
+            <option value="Tom Carsello">Tom Carsello</option>
+            <option value="James Huang">James Huang</option>
+            <option value="Ethan He">Ethan He</option>
+        </select>
+        <br>
+        {% endfor %}
+    </div>
 
     <p>
         <center>
@@ -36,7 +55,7 @@
             </div>
           </div>
         <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 25px;">
-        <a href="{{ url_for('about') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Back </a>
+        <a href="{{ url_for('activities') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Back </a>
     </p>
 
     </form>
