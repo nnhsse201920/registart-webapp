@@ -111,7 +111,7 @@ def activities():
     checkbox = CheckBox()
     form = ActivitiesForm()
     if form.validate_on_submit():
-        return redirect(url_for('rules'))
+        return redirect(url_for('connections'))
     return render_template('activities.html', title='Your Activities', checkbox=checkbox, form=form,isOnSurvey=True)
 
 @app.route('/survey/manager',methods=['GET', 'POST'])
@@ -125,3 +125,15 @@ def manager():
     else:
         flash('Please complete this step before proceeding.')
     return render_template('manager.html', title='Target Contact Manager', form=form,isOnSurvey=True)
+
+@app.route('/survey/connections',methods=['GET', 'POST'])
+@login_required
+def connections():
+    if current_user.is_anonymous:
+        return redirect(url_for('login'))
+    check = CheckBox()
+    if check.validate():
+        return redirect(url_for('rules'))
+    else:
+        flash('Please complete this step before proceeding.')
+    return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,check=check)

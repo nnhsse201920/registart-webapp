@@ -167,3 +167,17 @@ p{
   font-weight: bold;
   float:left
 }
+
+.seniors{
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 5px;
+  width: 150px;
+}
+
+#activityheader{
+  font-weight: bold;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
