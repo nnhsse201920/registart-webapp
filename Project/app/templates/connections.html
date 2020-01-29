@@ -3,15 +3,18 @@
 
 {% block app_content %}
     <h1 id="aboutHeader">Connections</h1>
-    <h2 font-weight:bold;">Type the full names of senior friends and acquaintances from each group.</h2>
+    <h4 font-weight:bold;">Type the full names of senior friends and acquaintances from each group.</h2>
 
     <form action="" method="post" class="form" role="form">
         {{ check.csrf_token() }}
 
     <div style="float:left;">
-        <h3 id="activitiesheader">Close Friends</h3>
+        <h4 id="activitiesheader" style="font-size:20px;font-weight: bold">Close Friends</h3>
         {% for x in range(20) %}
-        {{x+1}}.&nbsp;
+        {{x+1}}.&nbsp
+        {% if x < 9 %}
+        &nbsp;
+        {% endif %}
         <select class="seniors" name="Seniors">
             <option value="none" selected disabled hidden> 
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -26,9 +29,12 @@
     </div>
 
     <div>
-        <h3 id="activitiesheader" style="padding-top:20px">Friends from lunch/class</h3>
+        <h3 id="activitiesheader" style="padding-top:10px;font-size:20px;font-weight: bold">Friends from lunch/class</h3>
         {% for x in range(20) %}
-        {{x+1}}.&nbsp;
+        {{x+1}}.&nbsp
+        {% if x < 9 %}
+        &nbsp;
+        {% endif %}
         <select class="seniors" name="Seniors">
             <option value="none" selected disabled hidden> 
                 &nbsp;&nbsp;&nbsp;&nbsp;

@@ -111,6 +111,10 @@ html {
     padding-top: 30px;
 }
 
+.progress-bar {
+  background-color:#2B427C;
+}
+
 #aboutHeader{
     color: rgb(102, 26, 16);
     font-family: "Oswald", sans-serif;
@@ -131,7 +135,7 @@ p{
     color: rgb(102, 26, 16);
     font-family: "Oswald", sans-serif;
     font-weight: bold;
-    text-decoration-line: underline;
+    font-size: 18px;
     padding-top: 10px;
 }
 
@@ -180,4 +184,8 @@ p{
   margin-top: 20px;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.btn-primary {
+  background-color:#2B427C;
 }
