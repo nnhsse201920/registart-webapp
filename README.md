@@ -16,31 +16,44 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 - MacOS and Unix compatible <br/>
 
 # Configuration 
-Ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) is installed. <br/>
-Open a terminal and ``cd`` to the 'Project' folder<br/>
+1. Clone the repository from GitHub
 
-Input these commands into the terminal: <br/>
+2. Ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) is installed. <br/>
+
+3. Navigating to the Project
+Project path: ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
+<strong>Through a terminal:</strong><br/>
+Open a terminal and ``cd`` to the 'Project' folder<br/>
+Then, input ``code .`` to launch VSCode and the Project.<br/>
+
+<strong>Through VSCode:</strong><br/>
+Open VSCode and click 'Open Folder' ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
+Navigate to the project path:
+
+4. Setting up the Python Virtual Environment
+Flask Applications needs a virtual environment to run.  <br/>
+Input the following commands into the terminal for configuration: <br/>
 <br/>
 <strong>Windows:</strong><br/>
 ```
 $ python -m venv venv       # create a virtual environment for Python 
-$ pip install -r req.txt    # install all packages needed for the app in one line
-$ venv/scripts/activate     # activate virtual environment for Flask to run
+$ venv/scripts/activate     # activate the virtual environment  
+$ pip install -r req.txt    # install all the packages needed for the app to run
 ```
 
 <strong>MacOS:</strong><br/>
 ```
 $ python3 -m venv venv 
-$ pip3 install -r req.txt 
 $ source venv/bin/activate 
+$ pip3 install -r req.txt 
 ```
 
 # Running the Application
+In the terminal, input the following command.
 <strong>Both Operating Systems: </strong><br/>
 ```
 (venv) $ flask run
 ```
-
 The terminal displays a link to localhost (A local server) <br/>
 ``` 
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
