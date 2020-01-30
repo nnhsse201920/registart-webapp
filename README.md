@@ -36,9 +36,8 @@ Then, input ``code .`` to launch VSCode and the Project.<br/>
 Open VSCode and click 'Open Folder' ``\Users\[USER]\Documents\GitHub\registart-webapp\Project`` <br/>
 Navigate to the project path: <br/>
 
-4. Setting up the Python Virtual Environment <br/>
 Flask Applications needs a virtual environment to run.  <br/>
-Input the following commands into the terminal for configuration: <br/>
+Input the following commands into the terminal to set up one: <br/>
 <strong>Windows:</strong><br/>
 ```
 $ python -m venv venv       # create a virtual environment for Python 
