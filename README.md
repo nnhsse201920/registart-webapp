@@ -42,7 +42,7 @@ Input the following commands into the terminal to set up a virtual environment: 
 <br/><strong>Windows:</strong><br/>
 ```
 $ python -m venv venv       # create a virtual environment for Python 
-$ venv/scripts/activate     # activate the virtual environment  
+$ venv\scripts\activate     # activate the virtual environment  
 $ pip install -r req.txt    # install all the packages needed for the app to run
 ```
 
