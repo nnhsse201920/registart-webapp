@@ -20,17 +20,17 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 
 2. Ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) is installed. <br/>
 
-3. Navigating to the Project
-Project path: ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
+3. Navigating to the Project <br/>
+Project path: ``\Users\[USER]\Documents\GitHub\registart-webapp\Project`` <br/>
 <strong>Through a terminal:</strong><br/>
 Open a terminal and ``cd`` to the 'Project' folder<br/>
 Then, input ``code .`` to launch VSCode and the Project.<br/>
 
 <strong>Through VSCode:</strong><br/>
-Open VSCode and click 'Open Folder' ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
-Navigate to the project path:
+Open VSCode and click 'Open Folder' ``\Users\[USER]\Documents\GitHub\registart-webapp\Project`` <br/>
+Navigate to the project path: <br/>
 
-4. Setting up the Python Virtual Environment
+4. Setting up the Python Virtual Environment <br/>
 Flask Applications needs a virtual environment to run.  <br/>
 Input the following commands into the terminal for configuration: <br/>
 <br/>
