@@ -1,5 +1,13 @@
 # Registart Survey Web App
 
+## Table of contents
+* [Overview](#overview)
+* [Functionality](#functionality)
+* [How it Works](#how-it-works)
+* [Platform Requirements](#platform-requirements)
+* [Configuration](#configuration)
+* [Running the Application](#running-the-application)
+
 # Overview
 A simple and brief survey developed with the Flask Microframework for Registart, a nonprofit startup that allows high school seniors to encourage their peers to register to vote.
 
@@ -16,12 +24,10 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 - MacOS and Unix compatible <br/>
 
 # Configuration 
-1. Clone the repository from GitHub
+To setup this project, ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) are installed. <br/>
 
-2. Ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) is installed. <br/>
-
-3. Navigating to the Project <br/>
 Project path: ``\Users\[USER]\Documents\GitHub\registart-webapp\Project`` <br/>
+<br/>
 <strong>Through a terminal:</strong><br/>
 Open a terminal and ``cd`` to the 'Project' folder<br/>
 Then, input ``code .`` to launch VSCode and the Project.<br/>
@@ -33,7 +39,6 @@ Navigate to the project path: <br/>
 4. Setting up the Python Virtual Environment <br/>
 Flask Applications needs a virtual environment to run.  <br/>
 Input the following commands into the terminal for configuration: <br/>
-<br/>
 <strong>Windows:</strong><br/>
 ```
 $ python -m venv venv       # create a virtual environment for Python 
@@ -49,12 +54,12 @@ $ pip3 install -r req.txt
 ```
 
 # Running the Application
-In the terminal, input the following command.
-<strong>Both Operating Systems: </strong><br/>
+In the terminal, input the following command.<br/>
+<br/><strong>Both Operating Systems: </strong><br/>
 ```
 (venv) $ flask run
 ```
-The terminal displays a link to localhost (A local server) <br/>
+The terminal then displays a link to localhost (A local server) <br/>
 ``` 
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
