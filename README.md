@@ -38,7 +38,7 @@ Navigate to the project path: <br/>
 
 Flask Applications needs a virtual environment to run.  <br/>
 Input the following commands into the terminal to set up one: <br/>
-<strong>Windows:</strong><br/>
+<br/><strong>Windows:</strong><br/>
 ```
 $ python -m venv venv       # create a virtual environment for Python 
 $ venv/scripts/activate     # activate the virtual environment  
