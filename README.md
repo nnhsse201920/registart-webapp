@@ -21,7 +21,7 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 
 # Platform Requirements
 - Windows 7 or above <br/>
-- MacOS X <br/>
+- MacOS X Compatible <br/>
 - [VSCode](https://code.visualstudio.com/) needed
 
 # Configuration 
