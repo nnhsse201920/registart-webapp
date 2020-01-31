@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [Overview](#overview)
-* [Functionality](#functionality)
+* [What it Does](#what-it-does)
 * [How it Works](#how-it-works)
 * [Platform Requirements](#platform-requirements)
 * [Configuration](#configuration)
@@ -11,17 +11,18 @@
 # Overview
 A simple and brief survey developed with the Flask Microframework for Registart, a nonprofit startup that allows high school seniors to encourage their peers to register to vote.
 
-# Functionality
+# What it Does
 Students can take the survey by inputting their information regarding their relationships with their peers in their NNHS activities and the senior class and obtain a list of 20 students that they should encourage to register to vote. 
 
-Currently, the skeleton and the foundation are the only features of the web app for now. Therefore, pages will render as they should but there is no functionality within the database yet.
+Currently, the skeleton and the foundation are the only features of the web app for now. Therefore, pages will render as they should but there is no functionality within the database yet. Users are only able to navigate through each page for now.
 
 # How it Works
 By taking this survey, sudent organizers will be able the know exactly what Registart is, the Illinois Voter Registration Process, and a guide on how to encourage their peers to vote. Students will enter their activities and their relationships to their senior class peers and obtain a list of 20 student targets.
 
 # Platform Requirements
 - Windows 7 or above <br/>
-- MacOS and Unix compatible <br/>
+- MacOS X and Unix compatible <br/>
+- [VSCode](https://code.visualstudio.com/) needed
 
 # Configuration 
 To setup this project, ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) are installed. <br/>
@@ -63,7 +64,7 @@ The terminal then displays a link to localhost (A local server) <br/>
 ``` 
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
-CTRL+Click to launch the link and run the application and the index page will display. <br/>
+CTRL+Click to launch the link and run the application and the index page (rendered index.html template) will display. <br/>
 
 ## Team Members
 * Tom Carsello
