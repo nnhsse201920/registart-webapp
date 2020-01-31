@@ -21,7 +21,7 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 
 # Platform Requirements
 - Windows 7 or above <br/>
-- MacOS X and Unix compatible <br/>
+- MacOS X <br/>
 - [VSCode](https://code.visualstudio.com/) needed
 
 # Configuration 
@@ -47,7 +47,7 @@ $ venv\scripts\activate     # activate the virtual environment
 $ pip install -r req.txt    # install all the packages needed for the app to run
 ```
 
-<strong>MacOS:</strong><br/>
+<strong>MacOS X:</strong><br/>
 ```
 $ python3 -m venv venv 
 $ source venv/bin/activate 
