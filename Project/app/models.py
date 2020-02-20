@@ -39,3 +39,6 @@ class Students(UserMixin, db.Model):
     organizationID = db.Column(db.Integer(), index=True, unique=True)
     isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)                          
                                
+@login.user_loader
+def load_user(id):
+    return Organizers.query.get(int(id))
