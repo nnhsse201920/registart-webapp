@@ -20,6 +20,7 @@ class Organizers(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+
 class Assignments(db.Model):
     organizerID = db.Column(db.Integer(), primary_key=True)
     studentID = db.Column(db.Integer(), index=True, unique=True)
@@ -39,3 +40,7 @@ class Students(UserMixin, db.Model):
     organizationID = db.Column(db.Integer(), index=True, unique=True)
     isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)                          
                                
+
+@login.user_loader
+def load_user(id):
+        return Organizers.query.get(int(id))
