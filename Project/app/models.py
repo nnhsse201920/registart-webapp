@@ -39,8 +39,7 @@ class Students(UserMixin, db.Model):
     targetID = db.Column(db.VARBINARY(255), index=True, unique=True)
     organizationID = db.Column(db.Integer(), index=True, unique=True)
     isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)                          
-                               
 
 @login.user_loader
 def load_user(id):
-        return Organizers.query.get(int(id))
+    return Organizers.query.get(int(id))
