@@ -80,7 +80,8 @@ def connections():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = ConnectionsForm()
+    
     if form.validate_on_submit():
         return redirect(url_for('index'))
     flash('Please complete this step before proceeding.')
-    return render_template('connections.html', title='Registart | Connections', isOnSurvey=True)
+    return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,form=form)

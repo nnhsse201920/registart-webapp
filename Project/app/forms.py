@@ -49,4 +49,10 @@ class ActivitiesForm(FlaskForm):
     submit = SubmitField()
 
 class ConnectionsForm(FlaskForm):
-    submit = SubmitField('Next')
+    closefriends = Select2MultipleField("Close friends", [],
+            choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
+            render_kw={"multiple": "multiple"})
+    classfriends = Select2MultipleField("Friends from lunch or class", [],
+            choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
+            render_kw={"multiple": "multiple"})
+    submit = SubmitField()
