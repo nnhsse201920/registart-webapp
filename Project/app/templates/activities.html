@@ -5,21 +5,7 @@
     <h1 id="aboutHeader">Activities</h1>
     <h4 style="padding-bottom: 20px;">Enter up to 8 NNHS activities you were involved in</h4>
 
-    <form action="" method="post" class="form" role="form">
-        {{ form.csrf_token() }}
-    <d1>
-        {{ wtf.form_field(form.activity1, style="width:500px") }}
-        {{ wtf.form_field(form.activity2, style="width:500px") }}
-        {{ wtf.form_field(form.activity3, style="width:500px") }}
-        {{ wtf.form_field(form.activity4, style="width:500px") }}
-        {{ wtf.form_field(form.activity5, style="width:500px") }}
-        {{ wtf.form_field(form.activity6, style="width:500px") }}
-        {{ wtf.form_field(form.activity7, style="width:500px") }}
-        {{ wtf.form_field(form.activity8, style="width:500px") }}
-        <center>
-        {{ wtf.form_field(form.check, style="padding:20px") }}
-        </center>
-    </d1>
+    <div>
     <p>
         <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="14"
@@ -27,10 +13,10 @@
               14%
             </div>
           </div>
-        <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 25px;">
+        <a href="{{ url_for('connections') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Next </a>
         <a href="{{ url_for('about') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Back </a>
     </p>
-    </form>
+</div>
     
 {% endblock %}
 

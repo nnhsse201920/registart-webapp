@@ -24,11 +24,7 @@
     <p>All data remains with RegiStart.</p>
 
 
-    <form action="" method="post" novalidate>
-        {{ form.csrf_token() }}
-        <center>
-            <p>{{ wtf.form_field(form.check, style="padding:20px") }}</p>
-        </center>
+    <div>
         <p>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="0"
@@ -36,9 +32,9 @@
                   0%
                 </div>
               </div>
-        <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 25px;">
+            <a href="{{ url_for('activities') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Next </a>
         </p>
-    </form>
+    </div>
     
 {% endblock %}
 

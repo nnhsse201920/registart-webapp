@@ -29,18 +29,9 @@ class RegistrationForm(FlaskForm):
         user = Organizers.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Email address is associated with an existing account.')
-            
-class CheckBox(FlaskForm):
-    check = BooleanField('I have completed this step', validators=[DataRequired()])
 
 class ActivitiesForm(FlaskForm):
-    activity1 = StringField('Activity 1')
-    activity2 = StringField('Activity 2')
-    activity3 = StringField('Activity 3')
-    activity4 = StringField('Activity 4')
-    activity5 = StringField('Activity 5')
-    activity6 = StringField('Activity 6')
-    activity7 = StringField('Activity 7')
-    activity8 = StringField('Activity 8')
-    submit = SubmitField('Sign In')
-    check = BooleanField('I have completed this step', validators=[DataRequired()])
+    submit = SubmitField('Next')
+
+class ConnectionsForm(FlaskForm):
+    submit = SubmitField('Next')
