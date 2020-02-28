@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, \
-    TextAreaField
+    TextAreaField, SelectField, SelectMultipleField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
     Length
 from app.models import *
@@ -30,8 +30,23 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Email address is associated with an existing account.')
 
+class Select2MultipleField(SelectMultipleField):
+
+    def pre_validate(self, form):
+        # Prevent "not a valid choice" error
+        pass
+
+    def process_formdata(self, valuelist):
+        if valuelist:
+            self.data = ",".join(valuelist)
+        else:
+            self.data = ""
+
 class ActivitiesForm(FlaskForm):
-    submit = SubmitField('Next')
+    activities = Select2MultipleField("Activities", [],
+            choices=[("xc", "Cross Country"), ("tf", "Track and Field"), ("bb", "Basketball"),("mt","Math Team")],
+            render_kw={"multiple": "multiple"})
+    submit = SubmitField()
 
 class ConnectionsForm(FlaskForm):
     submit = SubmitField('Next')
