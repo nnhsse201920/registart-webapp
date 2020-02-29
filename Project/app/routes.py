@@ -4,6 +4,9 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
 from app.models import *
+import pymysql
+
+dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 
 @app.route('/')
@@ -82,6 +85,18 @@ def connections():
     form = ConnectionsForm()
     
     if form.validate_on_submit():
-        return redirect(url_for('index'))
+        return redirect(url_for('relationships'))
     flash('Please complete this step before proceeding.')
     return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,form=form)
+
+@app.route('/survey/relationships', methods=['GET', 'POST'])
+@login_required
+def relationships():
+    if current_user.is_anonymous:
+        return redirect(url_for('index'))
+    flash('Please complete this step before proceeding.')
+    cursor = dbConnect.cursor()
+    cursor.execute("SELECT firstN FROM students")
+    studentNames = cursor.fetchall() 
+    studentNames = [i[0] for i in studentNames]
+    return render_template('relationships.html', title='Relationships', isOnSurvey=True, studentNames=studentNames)
