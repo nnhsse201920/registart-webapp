@@ -11,14 +11,17 @@ class Organizers(UserMixin, db.Model):
     username = db.Column(db.VARCHAR(255), index=True, unique=True)
     organizationID = db.Column(db.Integer(), index=True, unique=True)
     email = db.Column(db.VARCHAR(255), index=True, unique=True)
-    password = db.Column(db.VARCHAR(255), index=True, unique=True)
+    password = db.Column(db.String(128))
     
     def __repr__(self):
-        return '<Organizer {}>'.format(self.username)
-    def set_password(self, password):
-        self.password = generate_password_hash(password)
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
+        return '<User {}>'.format(self.username)
+
+    def set_password(self, p):
+        self.password = generate_password_hash(p)
+
+    def check_password(self, p):
+        return check_password_hash(self.password, p)
+
 
 
 class Assignments(db.Model):

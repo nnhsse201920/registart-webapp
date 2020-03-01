@@ -15,7 +15,7 @@
 
 {% block content %}
     <div id="navbar">
-            <a class="registart-logo" href="{{ url_for('index') }}"><img src="/static/registart-logo.png"></a>
+            <a class="registart-logo" href="{{ url_for('index') }}"><img src="/static/images/registart-logo.png"></a>
             {% if current_user.is_anonymous %}
             <a class="loginlink" href="{{ url_for('login') }}">Login</a>
             <a class="registerlink" href="{{ url_for('register') }}">Register</a>
