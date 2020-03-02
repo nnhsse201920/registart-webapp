@@ -57,7 +57,7 @@ $ pip3 install -r req.txt
 # Running the Application
 In the terminal, input the following commands.<br/>
 
-Step 1: Start databases in Docker container<br/>
+<strong>Step 1:</strong> Start databases in Docker container<br/>
 
 <br/><strong>First Run ONLY - Initialize Database</strong><br/>
 ```
