@@ -55,8 +55,18 @@ $ pip3 install -r req.txt
 ```
 
 # Running the Application
-In the terminal, input the following command.<br/>
-<br/><strong>Both Operating Systems: </strong><br/>
+In the terminal, input the following commands.<br/>
+
+<strong>Step 1:</strong> Start databases in Docker container<br/>
+
+<br/><strong>First Run ONLY - Initialize Database</strong><br/>
+```
+(venv) $ flask db init
+(venv) $ flask db migrate
+(venv) $ flask db init
+```
+
+<br/><strong>Start Server: </strong><br/>
 ```
 (venv) $ flask run
 ```
