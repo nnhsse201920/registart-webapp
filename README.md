@@ -60,13 +60,12 @@ In the terminal, input the following commands.<br/>
 <strong>Step 1:</strong> Start databases in Docker container from [Database GitHub Repository](https://github.com/nnhsse201920/database-migration)
 * NOTE: Only buid the image on the first run. Rebuilding the image on future runs will clear the contents of the database. 
 
-<br/><strong>First Run ONLY - Initialize Database</strong><br/>
+<strong>First Run ONLY - Initialize Database</strong><br/>
 ```
 (venv) $ flask db init
 (venv) $ flask db migrate
 (venv) $ flask db init
 ```
-
 <br/><strong>Start Server: </strong><br/>
 ```
 (venv) $ flask run
