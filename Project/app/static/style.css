@@ -3,31 +3,20 @@ body {
     padding: 0;
     font-family: 'Oswald', sans-serif;
     background-color: #fdfdfd;
+    height: 100%;
+    margin: 0;
 }
 
 html {
-	scroll-behavior: smooth;
-}
-
-.aboutDoc img{
-    width: 70%;
-    height: auto;
-}
-
-.rulesDoc img{
-    width: 70%;
-    height: auto;
-}
-
-.scriptDoc img{
-    width: 70%;
-    height: auto;
+  scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
 }
 
 #navbar {
-    overflow: hidden;
     background-color: #fff;
     border-bottom: 0.5vh solid #2B427C;
+    overflow: auto;
 }
 
 #navbar a {
@@ -111,10 +100,6 @@ html {
     padding-top: 30px;
 }
 
-.progress-bar {
-  background-color:#2B427C;
-}
-
 #aboutHeader{
     color: rgb(102, 26, 16);
     font-family: "Oswald", sans-serif;
@@ -129,6 +114,8 @@ html {
 
 p{
   font-size: 15px;
+  padding-left:20px;
+  padding-right:20px;
 }
 
 #descheader{
@@ -167,11 +154,6 @@ p{
   float:left
 }
 
-#boldtip{
-  font-weight: bold;
-  float:left
-}
-
 .seniors{
   margin-top: 20px;
   margin-right: 20px;
@@ -188,4 +170,11 @@ p{
 
 .btn-primary {
   background-color:#2B427C;
+}
+
+#bigtext{
+  font-size: 64px;
+  color: white;
+  font-weight: bold;
+  text-align:center;
 }

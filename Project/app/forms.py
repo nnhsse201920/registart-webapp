@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, \
-    TextAreaField
+    TextAreaField, SelectField, SelectMultipleField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
     Length
 from app.models import *
@@ -29,18 +29,30 @@ class RegistrationForm(FlaskForm):
         user = Organizers.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Email address is associated with an existing account.')
-            
-class CheckBox(FlaskForm):
-    check = BooleanField('I have completed this step', validators=[DataRequired()])
+
+class Select2MultipleField(SelectMultipleField):
+
+    def pre_validate(self, form):
+        # Prevent "not a valid choice" error
+        pass
+
+    def process_formdata(self, valuelist):
+        if valuelist:
+            self.data = ",".join(valuelist)
+        else:
+            self.data = ""
 
 class ActivitiesForm(FlaskForm):
-    activity1 = StringField('Activity 1')
-    activity2 = StringField('Activity 2')
-    activity3 = StringField('Activity 3')
-    activity4 = StringField('Activity 4')
-    activity5 = StringField('Activity 5')
-    activity6 = StringField('Activity 6')
-    activity7 = StringField('Activity 7')
-    activity8 = StringField('Activity 8')
-    submit = SubmitField('Sign In')
-    check = BooleanField('I have completed this step', validators=[DataRequired()])
+    activities = Select2MultipleField("Activities", [],
+            choices=[("xc", "Cross Country"), ("tf", "Track and Field"), ("bb", "Basketball"),("mt","Math Team")],
+            render_kw={"multiple": "multiple"})
+    submit = SubmitField()
+
+class ConnectionsForm(FlaskForm):
+    closefriends = Select2MultipleField("Close friends", [],
+            choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
+            render_kw={"multiple": "multiple"})
+    classfriends = Select2MultipleField("Friends from lunch or class", [],
+            choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
+            render_kw={"multiple": "multiple"})
+    submit = SubmitField()
