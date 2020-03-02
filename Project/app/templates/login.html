@@ -10,7 +10,7 @@
          {{ wtf.form_field(form.password, style="width:500px") }}
          {{ wtf.form_field(form.remember_me) }}
        </d1>
-       <p><input type=submit class='btn btn-primary' value="Sign In"></p>
+       <div style="padding-bottom: 5px;"><input type=submit class='btn btn-primary' value="Sign In"></div>
       </form>
     <a href="{{ url_for('register') }}"> Create Account </a>
 {% endblock %}
