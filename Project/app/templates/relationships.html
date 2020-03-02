@@ -12,45 +12,48 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2 text-center">
                 <h1 id="aboutHeader">Relationships</h1>
                 <h4 style="padding-bottom: 20px;">Do you know this person?</h4>
                 
             <hr>
-                <center><h3 id="studentName">{{studentNames[0]}}</h3></center>
-                <button id="yes" style='background-color: #008000; width: 50px; height: 50px'>
+                <center><h3 id="studentName" style="margin-top: 35px">{{stuNames[0]}}</h3></center>
+                <button class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px">
                     Yes
                 </button>
-                <button id="no" style='background-color: #ff0000; width: 50px; height: 50px'>
+                <button class='btn btn-danger' style="margin-top: 25px; margin-bottom: 25px; width: 100px">
                     No
                 </button>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
                 <script type="text/javascript">
+                    var studentList = JSON.parse('{{stuNames|tojson}}');
+                    var num = 0;
                     $(function()
                         {  
-                        var counter = 2;
                         $(document).focus();
-                        
                         $(document).keydown(function(e){
                             switch (e.which)
                             {
                                 case 65:
-                                    $("#yes").css('background-color', "#ff0000")
+                                    if (num > 0)
+                                        num--;
+                                        $("#studentName").text(studentList[num]);
                                     break;
                                 case 68:
-                                    $("#no").css('background-color', "#008000")
+                                    if (num < studentList.length - 1)
+                                        num++;
+                                        $("#studentName").text(studentList[num]);
                                     break;                    
                             }
-                            
-                            $("#studentName").text("{{studentNames[counter]}}")
-                            
-                        });        
+                        }); 
+                             
                     });
                 </script>
-
-                <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 25px;">
-                <a href="{{ url_for('connections') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 25px;"> Back </a>
-                    
+                
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 50px;">
+                <a href="{{ url_for('connections') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 50px;"> Back </a>  
             </div>
         </div>
     </div>

@@ -96,7 +96,7 @@ def relationships():
         return redirect(url_for('index'))
     flash('Please complete this step before proceeding.')
     cursor = dbConnect.cursor()
-    cursor.execute("SELECT firstN FROM students")
-    studentNames = cursor.fetchall() 
-    studentNames = [i[0] for i in studentNames]
-    return render_template('relationships.html', title='Relationships', isOnSurvey=True, studentNames=studentNames)
+    cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
+    stuNames = cursor.fetchall()
+    stuNames = [i[0] for i in stuNames]
+    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)

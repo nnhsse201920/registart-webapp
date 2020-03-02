@@ -202,7 +202,7 @@ p{
   background-color:#2B427C;
 }
 
-.studentName{
-  font-family: "Oswald", sans-serif;
-  font-size: 27px;
+#studentName{
+    font-family: "Oswald", sans-serif;
+    font-size: 35px;
 }
