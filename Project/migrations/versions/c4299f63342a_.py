@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2cc74054be7c
+Revision ID: c4299f63342a
 Revises: 
-Create Date: 2020-02-27 19:08:31.183102
+Create Date: 2020-03-02 13:33:05.245771
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2cc74054be7c'
+revision = 'c4299f63342a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -47,10 +47,10 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_organizers_email'), 'organizers', ['email'], unique=True)
-    op.create_index(op.f('ix_organizers_firstN'), 'organizers', ['firstN'], unique=True)
-    op.create_index(op.f('ix_organizers_lastN'), 'organizers', ['lastN'], unique=True)
-    op.create_index(op.f('ix_organizers_organizationID'), 'organizers', ['organizationID'], unique=True)
-    op.create_index(op.f('ix_organizers_password'), 'organizers', ['password'], unique=True)
+    op.create_index(op.f('ix_organizers_firstN'), 'organizers', ['firstN'], unique=False)
+    op.create_index(op.f('ix_organizers_lastN'), 'organizers', ['lastN'], unique=False)
+    op.create_index(op.f('ix_organizers_organizationID'), 'organizers', ['organizationID'], unique=False)
+    op.create_index(op.f('ix_organizers_password'), 'organizers', ['password'], unique=False)
     op.create_index(op.f('ix_organizers_username'), 'organizers', ['username'], unique=True)
     op.create_table('students',
     sa.Column('id', sa.Integer(), nullable=False),
