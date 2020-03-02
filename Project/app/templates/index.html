@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1 id="aboutHeader">Welcome to RegiStart, {{current_user.firstN}}!</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .cover {
+        background-image: url('/static/coverphoto.jpg');
+        height: 1080px;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cover"></div>
+</body>
 {% endblock %}
