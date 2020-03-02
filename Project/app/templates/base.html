@@ -15,24 +15,15 @@
 
 {% block content %}
     <div id="navbar">
-            <a class="registart-logo" href="{{ url_for('index') }}"><img src="/static/registart-logo.png"></a>
+            <a class="registart-logo" href="{{ url_for('about') }}"><img src="/static/registart-logo.png"></a>
             {% if current_user.is_anonymous %}
             <a class="loginlink" href="{{ url_for('login') }}">Login</a>
             <a class="registerlink" href="{{ url_for('register') }}">Register</a>
             {% else %}
-            <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>
+            <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>         
+            {% endif %}
+    </div>
 
-            {% if isOnSurvey %}
-            <a class="surveylink" href="{{ url_for('index') }}">Exit Survey</a>
-            {% else %}
-            <a class="surveylink" href="{{ url_for('about') }}">Take Survey</a>
-            {% endif %}
-            
-            {% endif %}
-    </div>
-    <div>
-        {% block app_content %}{% endblock %}
-    </div>
     <div class="container">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -42,7 +33,7 @@
             {% endif %}
             {% endwith %}
     
-            {# application content needs to be provided in the app_content block #}
+            {% block app_content %}{% endblock %}
     </div> 
     
         {% block scripts %}

@@ -1,33 +1,22 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
-    
-    <center><h1 id="aboutHeader">Introduction to RegiStart</h1></center>
+    <style>
+        body {
+            background-image: url('/static/coverphoto.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 1080px;
+        }   
+    </style>
+</head>
 
-    <p id="boldtext">What is the goal of RegiStart?</p>
-    <p>To increase youth voter registration from 50% to 80%.</p>
-    <p id="boldtext">What is RegiStart?</p>
-    <p>RegiStart is a program that helps you register your entire senior class to vote.</p>
-    <p id="boldtext">How does RegiStart work?</p>
-    <p>In an intensive one-week drive, RegiStart teaches you the rules of voter registration, 
-        how to ask others to get registered, and then connects you with students you know to show them how to get registered to vote.</p>
-    <p id="boldtext">What impact can I have?</p>
-    <p>At the end of your RegiStart Drive, you will have registered 15-20 of your peers.</p>
-    <p id="boldtext">What do I do as an Organizer?</p>
-    <p>
-        1. Identify how well you know your classmates.<br>
-        2. Learn how to get these classmates registered.<br>
-        3. Start registering!</p>
-    <p id="boldtext">Is data entered in RegiStart shared with other organizations?</p>
-    <p>All data remains with RegiStart.</p>
-
-    <div>
-        <p>
-            <a href="{{ url_for('activities') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 25px;background-color:#2B427C;"> Next </a>
-        </p>
+<body>
+    <div class="text-center"> 
+        <a href="{{ url_for('register') }}" class="btn btn-success" role="button"> Create Account </a>
     </div>
-    
+</body>
 {% endblock %}
-

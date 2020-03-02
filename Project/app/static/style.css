@@ -114,6 +114,8 @@ html {
 
 p{
   font-size: 15px;
+  padding-left:20px;
+  padding-right:20px;
 }
 
 #descheader{
@@ -168,4 +170,8 @@ p{
 
 .btn-primary {
   background-color:#2B427C;
+}
+
+#bigtext{
+  font-size: 36px;
 }
