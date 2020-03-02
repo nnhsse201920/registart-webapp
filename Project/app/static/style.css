@@ -108,6 +108,14 @@ html {
 
 }
 
+#nameHeader{
+  color: rgb(102, 26, 16);
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+
+}
+
 #boldtext{
     font-weight: bold;
 }
@@ -171,6 +179,14 @@ p{
 .btn-primary {
   background-color:#2B427C;
 }
+
+.submitbutton{
+  background-color:#2B427C;
+}
+
+#studentName{
+    font-family: "Oswald", sans-serif;
+    font-size: 35px;}
 
 #bigtext{
   font-size: 64px;

@@ -4,6 +4,9 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
 from app.models import *
+import pymysql
+
+dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 
 @app.route('/')
@@ -53,7 +56,7 @@ def register():
         login_user(user)
         return redirect(url_for('index'))
     return render_template('register.html', title='Register', form=form)
- 
+
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
@@ -71,10 +74,23 @@ def connections():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = ConnectionsForm()
-    
+
     if form.validate_on_submit():
+        return redirect(url_for('relationships'))
+    flash('Please complete this step before proceeding.')
+    return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,form=form)
+
+@app.route('/survey/relationships', methods=['GET', 'POST'])
+@login_required
+def relationships():
+    if current_user.is_anonymous:
         return redirect(url_for('index'))
-    return render_template('connections.html', title='Registart | Connections',form=form)
+    flash('Please complete this step before proceeding.')
+    cursor = dbConnect.cursor()
+    cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
+    stuNames = cursor.fetchall()
+    stuNames = [i[0] for i in stuNames]
+    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
 
 @app.route('/about',methods=['GET', 'POST'])
 def about():
