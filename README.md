@@ -57,7 +57,8 @@ $ pip3 install -r req.txt
 # Running the Application
 In the terminal, input the following commands.<br/>
 
-<strong>Step 1:</strong> Start databases in Docker container<br/>
+<strong>Step 1:</strong> Start databases in Docker container from [Database GitHub Repository](https://github.com/nnhsse201920/database-migration)
+* NOTE: Only buid the image on the first run. Rebuilding the image on future runs will clear the contents of the database. 
 
 <br/><strong>First Run ONLY - Initialize Database</strong><br/>
 ```
