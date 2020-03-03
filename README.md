@@ -64,7 +64,7 @@ In the terminal, input the following commands.<br/>
 ```
 (venv) $ flask db init
 (venv) $ flask db migrate
-(venv) $ flask db init
+(venv) $ flask db upgrade
 ```
 <br/><strong>Start Server: </strong><br/>
 ```
