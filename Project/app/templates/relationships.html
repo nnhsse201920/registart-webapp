@@ -18,10 +18,10 @@
                 
             <hr>
                 <center><h3 id="studentName" style="margin-top: 35px">{{stuNames[0]}}</h3></center>
-                <button class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px">
+                <button id="yes" class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">
                     Yes
                 </button>
-                <button class='btn btn-danger' style="margin-top: 25px; margin-bottom: 25px; width: 100px">
+                <button id="no" class='btn btn-danger' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">
                     No
                 </button>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,14 +30,24 @@
                     var num = 0;
                     $(function()
                         {  
-                        $(document).focus();
+                        $("#yes").click(function(){
+                            num++;                                   
+                            $("#studentName").text(studentList[num]);
+                        });
+                        $("#no").click(function(){
+                            num++;                                   
+                            $("#studentName").text(studentList[num]);
+                        });
+                        $(document).focus();                      
                         $(document).keydown(function(e){
                             switch (e.which)
                             {
                                 case 65:
                                     if (num > 0)
+                                    {
                                         num--;
                                         $("#studentName").text(studentList[num]);
+                                    }
                                     break;
                                 case 68:
                                     if (num < studentList.length - 1)
@@ -45,8 +55,7 @@
                                         $("#studentName").text(studentList[num]);
                                     break;                    
                             }
-                        }); 
-                             
+                        });     
                     });
                 </script>
                 
