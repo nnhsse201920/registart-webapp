@@ -80,6 +80,7 @@ def connections():
     flash('Please complete this step before proceeding.')
     return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,form=form)
 
+
 @app.route('/survey/relationships', methods=['GET', 'POST'])
 @login_required
 def relationships():
@@ -91,6 +92,7 @@ def relationships():
     stuNames = cursor.fetchall()
     stuNames = [i[0] for i in stuNames]
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
+
 
 @app.route('/about',methods=['GET', 'POST'])
 def about():
