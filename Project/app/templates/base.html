@@ -25,6 +25,9 @@
             {% endif %}
     </div>
 
+    {% block landing_page %}
+    {% endblock %}
+
     <div class="container">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
