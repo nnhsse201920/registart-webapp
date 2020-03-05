@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block app_content %}
+{% block landing_page %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
@@ -9,27 +9,87 @@
 
 
     <style>
-        body {
+        #bg-img {
             background-image: url('/static/landingdarken.jpg');
+            height: 100%;
+            border-bottom: 0.5vh solid #2B427C;
+            background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 1080px;
-            position: relative;
         }   
+
+        #registart-info{
+            color: #010E30;
+            background-color:white;
+            text-align:center;
+            padding:50px 80px;
+            border-bottom: 0.5vh solid #2B427C;
+            font-family: 'Montserrat';
+        }
+
+        #title {
+            color: #010E30;
+            font-size: 5vh;
+            width: 100%;
+            font-weight: 700;
+            padding-bottom: 10px;
+        }
+
+        #bigtext{
+            padding: 50px;
+            font-size: 75px;
+            color: white;
+            font-weight: bold;
+            text-align:center;
+        }
+
+        #aboutText{
+            font-size: 18px;
+            padding: 5px;
+            }
+        
+        #get-started{
+            border: 0.3vh solid white;
+            padding: 2vh 3vh;
+            font-size: 4vh;
+            border-radius: 60px;
+            width: fit-content;
+            width: -moz-fit-content;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="text-center"> 
-        <div id="bigtext" style="font-family: 'Montserrat';">
-            Welcome to RegiStart
+    <div id="bg-img">
+        <div class="text-center"> 
+            <div id="bigtext" style="font-family: 'Montserrat';">
+                Welcome to RegiStart
+            </div>
+            <a href="#registart-info" class="btn btn-outline-light btn-lg" id="get-started" data-toggle="button" aria-pressed="false" autocomplete="off" role="button" style="font-size: 40px;"> Get Started </a>
         </div>
-        <a href="#info" class="btn btn-outline-light btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off" role="button" style="font-size: 40px;"> Get Started </a>
     </div>
 
-    <h3 id="info" style="position: absolute; bottom: 0; text-align: center;">
-        What exactly is Registart?
-    </h3>
+    <div id="registart-info">
+        <div id="title">What exactly is RegiStart?</div>
+            <div id="aboutText" style="font-weight: bold;">What is RegiStart?</div>
+            <div id="aboutText">RegiStart is a program that helps you register your entire senior class to vote.</div>
+            <div id="aboutText" style="font-weight: bold;">What is the goal of RegiStart?</div>
+            <div id="aboutText">To increase youth voter registration from 50% to 80%.</div>
+            <div id="aboutText" style="font-weight: bold;">How does RegiStart work?</div>
+            <div id="aboutText">In an intensive one-week drive, RegiStart teaches you the rules of voter registration, 
+                how to ask others to get registered, and then connects you with students you know to show them how to get registered to vote.</div>
+            <div id="aboutText" style="font-weight: bold;">What impact can I have?</div>
+            <div id="aboutText">At the end of your RegiStart Drive, you will have registered 15-20 of your peers.</div>
+            <div id="aboutText" style="font-weight: bold;">What do I do as an Organizer?</div>
+            <div id="aboutText">
+                1. Identify how well you know your classmates.<br>
+                2. Learn how to get these classmates registered.<br>
+                3. Start registering!</p>
+            <div id="aboutText" style="font-weight: bold;">Is data entered in RegiStart shared with other organizations?</div>
+            <div id="aboutText">All data remains with RegiStart.</div>
+    </div>
 </body>
 {% endblock %}

@@ -121,7 +121,6 @@ html {
 }
 
 p{
-  padding-left:20px;
   padding-right:20px;
 }
 
@@ -186,10 +185,3 @@ p{
 #studentName{
     font-family: "Oswald", sans-serif;
     font-size: 35px;}
-
-#bigtext{
-  font-size: 64px;
-  color: white;
-  font-weight: bold;
-  text-align:center;
-}
