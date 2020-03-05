@@ -4,9 +4,9 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
 from app.models import *
-#import pymysql
+import pymysql
 
-#dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
+dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 
 @app.route('/')
@@ -76,11 +76,11 @@ def connections():
     form = ConnectionsForm()
 
     if form.validate_on_submit():
-        return redirect(url_for('index'))
+        return redirect(url_for('relationships'))
     flash('Please complete this step before proceeding.')
     return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,form=form)
 
-'''
+
 @app.route('/survey/relationships', methods=['GET', 'POST'])
 @login_required
 def relationships():
@@ -92,7 +92,7 @@ def relationships():
     stuNames = cursor.fetchall()
     stuNames = [i[0] for i in stuNames]
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
-'''
+
 
 @app.route('/about',methods=['GET', 'POST'])
 def about():
