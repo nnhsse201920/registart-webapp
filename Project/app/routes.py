@@ -96,4 +96,4 @@ def relationships():
 
 @app.route('/about',methods=['GET', 'POST'])
 def about():
-    return render_template('about.html', title='Registart | About')
+    return render_template('about.html', title='Registart | About', current_user=current_user)
