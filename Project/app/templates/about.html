@@ -27,7 +27,17 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-        }   
+        }  
+
+        #bg-img3 {
+            background-image: url('/static/chicagoview.jpg');
+            height: 60%;
+            border-bottom: 0.5vh solid #2B427C;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        } 
 
         #registart-info{
             color: black;
@@ -144,7 +154,15 @@
             color: white;
             }
 
-
+        
+        #bigtext2{
+            padding-top: 50px;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            text-align:center;
+            padding-bottom: 10px
+        }
        
     </style>
 </head>
@@ -179,6 +197,23 @@
             <div id="aboutText" style="color: #666666;">All data remains with RegiStart.</div>
     </div>
     <div id="bg-img2"></div>
+    <div class="text-center"> 
+        <div id="title" style="padding-top:20px;">Our Mission</div>
+        <div id="registart-info">
+            <iframe width="962" height="541" src="https://www.youtube.com/embed/Y7ffyVWvzuw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div id="bg-img3">
+        <div class="text-center"> 
+            <div id="bigtext2" style="font-family: 'Montserrat', sans-serif;">
+                Sign up to make a difference!
+            </div>
+            <a  href="{{ url_for('register') }}" class="btn-get-started" style="margin-top: 50px;"> Create Account </a>
+        </div>
+    </div>
+
+    <!-- Everything else must go above this-->
     <div id="registart-footer">
         <div id="footer-text">RegiStart 2020. Designed by Luke, Tom, Jame, and Ethan.</div>
         <a href="https://www.facebook.com/RegiStart2019/" class="fa fa-facebook"></a>
