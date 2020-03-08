@@ -85,7 +85,7 @@
         .btn-get-started {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
-        font-size: 30px;
+        font-size: 40px;
         letter-spacing: 1px;
         display: inline-block;
         padding: 8px 32px;
@@ -101,7 +101,7 @@
             color: #18d26e;
             background: #fff;
             text-decoration: none;
-            font-size: 30px;
+            font-size: 40px;
         }
 
         #registart-footer{
@@ -174,7 +174,11 @@
                 Welcome to RegiStart
             </div>
             <div id="header">RegiStart is a free, nonprofit program that helps you register your entire senior class to vote.</div>
+            {% if current_user.is_anonymous %}
             <a href="#registart-info" class="btn-get-started"> Get Started </a>
+            {% else %}
+            <a href="{{ url_for('activities') }}" class="btn-get-started"> Get Started </a>
+            {% endif %}
         </div>
     </div>
 
@@ -206,10 +210,17 @@
 
     <div id="bg-img3">
         <div class="text-center"> 
+            {% if current_user.is_anonymous %}
             <div id="bigtext2" style="font-family: 'Montserrat', sans-serif;">
                 Sign up to make a difference!
             </div>
-            <a  href="{{ url_for('register') }}" class="btn-get-started" style="margin-top: 50px;"> Create Account </a>
+            <a  href="{{ url_for('register') }}" class="btn-get-started" style="margin-top: 5vh;"> Create Account </a>
+            {% else %}
+            <div id="bigtext2" style="font-family: 'Montserrat', sans-serif;">
+                What are you waiting for?
+            </div>
+            <a  href="{{ url_for('activities') }}" class="btn-get-started" style="margin-top: 5vh;"> Take Survey </a>
+            {% endif %}
         </div>
     </div>
 
