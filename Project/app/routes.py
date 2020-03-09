@@ -11,11 +11,8 @@ dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
-    if current_user.is_anonymous:
-        return redirect(url_for('login'))
-    return render_template('index.html',current_user=current_user)
+    return render_template('index.html', title='Registart | About', current_user=current_user)
 
 @app.route('/survey')
 def survey():
@@ -41,7 +38,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('about'))
+    return redirect(url_for('index'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -93,7 +90,3 @@ def relationships():
     stuNames = [i[0] for i in stuNames]
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
 
-
-@app.route('/about',methods=['GET', 'POST'])
-def about():
-    return render_template('about.html', title='Registart | About', current_user=current_user)
