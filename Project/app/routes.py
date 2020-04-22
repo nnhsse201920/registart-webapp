@@ -8,11 +8,10 @@ import pymysql
 
 dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
-
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Registart | About', current_user=current_user)
+    return render_template('index.html', title='About', current_user=current_user)
 
 @app.route('/survey')
 def survey():
@@ -52,7 +51,7 @@ def register():
         db.session.commit()
         login_user(user)
         return redirect(url_for('index'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Get Started', form=form)
 
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
@@ -75,7 +74,7 @@ def connections():
     if form.validate_on_submit():
         return redirect(url_for('relationships'))
     flash('Please complete this step before proceeding.')
-    return render_template('connections.html', title='Registart | Connections', isOnSurvey=True,form=form)
+    return render_template('connections.html', title='Connections', isOnSurvey=True,form=form)
 
 
 @app.route('/survey/relationships', methods=['GET', 'POST'])
