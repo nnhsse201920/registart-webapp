@@ -3,6 +3,10 @@ from app import db, login
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
+participants = db.Table('participants',
+    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id')),
+    db.Column('activity_id',db.Integer,db.ForeignKey('activity.id'))
+    )
 
 class Organizers(UserMixin, db.Model):
     id = db.Column(db.Integer(), primary_key=True)
@@ -12,13 +16,22 @@ class Organizers(UserMixin, db.Model):
     organizationID = db.Column(db.Integer(), index=True)
     email = db.Column(db.VARCHAR(255), index=True, unique=True)
     password = db.Column(db.VARCHAR(255), index=True)
-    
+
+    activities = db.relationship('Activity',secondary=participants,backref=db.backref('members',lazy='dynamic'))
+
     def __repr__(self):
         return '<Organizer {}>'.format(self.username)
     def set_password(self, p):
         self.password = generate_password_hash(p)
     def check_password(self, p):
         return check_password_hash(self.password, p)
+
+class Activity(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20),unique=True)
+
+    def __str__(self):
+        return self.name
 
 class Assignments(db.Model):
     organizerID = db.Column(db.Integer(), primary_key=True)
@@ -37,7 +50,7 @@ class Students(UserMixin, db.Model):
     lastN = db.Column(db.VARCHAR(255), index=True, unique=True)
     targetID = db.Column(db.VARBINARY(255), index=True, unique=True)
     organizationID = db.Column(db.Integer(), index=True, unique=True)
-    isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)                          
+    isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)          
 
 @login.user_loader
 def load_user(id):
