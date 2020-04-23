@@ -35,17 +35,13 @@ class RegistrationForm(FlaskForm):
 class ActivitiesForm(FlaskForm):
     activityField = SelectMultipleField("Activities", coerce=int,default=1)
     submit = SubmitField()
-    def __init__(self, currentUser):
-        super(ActivitiesForm, self).__init__()
-        user = Organizers.query.filter_by(username=currentUser.username).first()
-        temp = user.activities
-        user.activities.clear()
-        db.session.commit()
+    def __init__(self):
+        super(ActivitiesForm, self).__init__()        
         options = []
         if Activity is not None:
             for a in Activity.query.all():
                 options.append((a.id, a.name))
-            self.activityField.choices = options        
+            self.activityField.choices = options    
 
 class ConnectionsForm(FlaskForm):
     closefriends = SelectMultipleField("Close friends", [],
@@ -53,5 +49,5 @@ class ConnectionsForm(FlaskForm):
             render_kw={"multiple": "multiple"})
     classfriends = SelectMultipleField("Friends from lunch or class", [],
             choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
-            render_kw={"multiple": "multiple"})
+            render_kw={"multiple": "multiple"},default=[("xc","Cross Country")])
     submit = SubmitField()
