@@ -5,6 +5,7 @@ from wtforms_sqlalchemy.fields import QuerySelectMultipleField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
     Length
 from app.models import *
+from app import db
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -32,15 +33,19 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Email address is associated with an existing account.')
 
 class ActivitiesForm(FlaskForm):
-    activityField = SelectMultipleField("Activities", coerce=int)
+    activityField = SelectMultipleField("Activities", coerce=int,default=1)
     submit = SubmitField()
-    def __init__(self):
+    def __init__(self, currentUser):
         super(ActivitiesForm, self).__init__()
+        user = Organizers.query.filter_by(username=currentUser.username).first()
+        temp = user.activities
+        user.activities.clear()
+        db.session.commit()
         options = []
         if Activity is not None:
             for a in Activity.query.all():
                 options.append((a.id, a.name))
-            self.activityField.choices = options
+            self.activityField.choices = options        
 
 class ConnectionsForm(FlaskForm):
     closefriends = SelectMultipleField("Close friends", [],

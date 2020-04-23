@@ -58,8 +58,8 @@ def register():
 def activities():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
-    form = ActivitiesForm()
     user = Organizers.query.filter_by(username=current_user.username).first()
+    form = ActivitiesForm(current_user)
     if form.validate_on_submit():
         userActivities = form.activityField.data # the IDs of activities that the user selected
         print(userActivities)
