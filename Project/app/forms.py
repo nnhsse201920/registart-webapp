@@ -31,7 +31,7 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Email address is associated with an existing account.')
 
-class Select2MultipleField(QuerySelectMultipleField):
+class Select2MultipleField(SelectMultipleField):
 
     def pre_validate(self, form):
         # Prevent "not a valid choice" error
@@ -43,11 +43,12 @@ class Select2MultipleField(QuerySelectMultipleField):
         else:
             self.data = ""
 
-def activity_query():
-    return Activity.query.filter_by()
+options = []
+for a in Activity.query.all():
+    options.append((a.id, a.name))
 
 class ActivitiesForm(FlaskForm):
-    activities = QuerySelectMultipleField("Activities", query_factory=activity_query)
+    activityField = SelectMultipleField("Activities", choices=options,coerce=int)
     submit = SubmitField()
 
 class ConnectionsForm(FlaskForm):

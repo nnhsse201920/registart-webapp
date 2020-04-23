@@ -15,16 +15,16 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
                 <h1 id="aboutHeader">Activities</h1>
-                <h4 style="padding-bottom: 20px;">Enter up to 8 NNHS activities you were involved in</h4>
+                <h4 style="padding-bottom: 20px;">Enter up to 8 activities you were involved in</h4>
             <hr>
                 <form action="{{ url_for('activities') }}" method="post">
                     {{ form.hidden_tag() }}
 
                     <div class="form-group">
-                        {{ form.activities.label }}
-                        {{ form.activities(class_="form-control") }}
+                        {{ form.activityField.label }}
+                        {{ form.activityField(class_="form-control") }}
 
-                        {% for error in form.activities.errors %}
+                        {% for error in form.activityField.errors %}
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                     </div>
