@@ -53,7 +53,6 @@ def register():
         return redirect(url_for('index'))
     return render_template('register.html', title='Get Started', form=form)
 
-
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
 def activities():
@@ -73,7 +72,7 @@ def activities():
         return redirect(url_for('relationships'))
     return render_template('activities.html', title='Your Activities', form=form)
 
-@app.route('/survey/connections',methods=['GET', 'POST'])
+@app.route('/survey/connections', methods=['GET', 'POST'])
 @login_required
 def connections():
     if current_user.is_anonymous:
@@ -83,7 +82,6 @@ def connections():
         return redirect(url_for('relationships'))
     flash('Please complete this step before proceeding.')
     return render_template('connections.html', title='Connections', isOnSurvey=True,form=form)
-
 
 @app.route('/survey/relationships', methods=['GET', 'POST'])
 @login_required
