@@ -5,6 +5,7 @@ from wtforms_sqlalchemy.fields import QuerySelectMultipleField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, \
     Length
 from app.models import *
+from app import db
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -31,14 +32,16 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Email address is associated with an existing account.')
 
-options = []
-if Activity is not None:
-    for a in Activity.query.all():
-        options.append((a.id, a.name))
-
 class ActivitiesForm(FlaskForm):
-    activityField = SelectMultipleField("Activities", choices=options, coerce=int)
+    activityField = SelectMultipleField("Activities", coerce=int,default=1)
     submit = SubmitField()
+    def __init__(self):
+        super(ActivitiesForm, self).__init__()        
+        options = []
+        if Activity is not None:
+            for a in Activity.query.all():
+                options.append((a.id, a.name))
+            self.activityField.choices = options    
 
 class ConnectionsForm(FlaskForm):
     closefriends = SelectMultipleField("Close friends", [],
@@ -46,5 +49,5 @@ class ConnectionsForm(FlaskForm):
             render_kw={"multiple": "multiple"})
     classfriends = SelectMultipleField("Friends from lunch or class", [],
             choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
-            render_kw={"multiple": "multiple"})
+            render_kw={"multiple": "multiple"},default=[("xc","Cross Country")])
     submit = SubmitField()
