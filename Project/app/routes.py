@@ -70,7 +70,7 @@ def activities():
                     activity = Activity.query.filter_by(id=activity.id).first()
                     activity.members.append(user) 
         db.session.commit()
-        return redirect(url_for('connections'))
+        return redirect(url_for('relationships'))
     return render_template('activities.html', title='Your Activities', form=form)
 
 @app.route('/survey/connections',methods=['GET', 'POST'])
