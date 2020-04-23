@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 5a2594e3f352
-Revises: 
-Create Date: 2020-04-21 21:57:53.784112
+Revision ID: 0f445093696a
+Revises: b44d1d432517
+Create Date: 2020-04-23 09:50:39.191791
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5a2594e3f352'
-down_revision = None
+revision = '0f445093696a'
+down_revision = 'b44d1d432517'
 branch_labels = None
 depends_on = None
 
@@ -73,10 +73,11 @@ def upgrade():
     op.create_index(op.f('ix_students_organizationID'), 'students', ['organizationID'], unique=True)
     op.create_index(op.f('ix_students_targetID'), 'students', ['targetID'], unique=True)
     op.create_table('participants',
-    sa.Column('organizer_id', sa.Integer(), nullable=True),
-    sa.Column('activity_id', sa.Integer(), nullable=True),
+    sa.Column('organizer_id', sa.Integer(), nullable=False),
+    sa.Column('activity_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['activity_id'], ['activity.id'], ),
-    sa.ForeignKeyConstraint(['organizer_id'], ['organizers.id'], )
+    sa.ForeignKeyConstraint(['organizer_id'], ['organizers.id'], ),
+    sa.PrimaryKeyConstraint('organizer_id', 'activity_id')
     )
     # ### end Alembic commands ###
 

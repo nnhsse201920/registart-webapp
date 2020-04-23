@@ -60,8 +60,17 @@ def activities():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = ActivitiesForm()
+    user = Organizers.query.filter_by(username=current_user.username).first()
     if form.validate_on_submit():
-        return redirect(url_for('connections'))
+        userActivities = form.activityField.data # the IDs of activities that the user selected
+        print(userActivities)
+        for i in range(len(userActivities)):
+            for activity in Activity.query.all():
+                if userActivities[i] == activity.id:
+                    activity = Activity.query.filter_by(id=activity.id).first()
+                    activity.members.append(user) 
+        db.session.commit()
+        return redirect(url_for('relationships'))
     return render_template('activities.html', title='Your Activities', form=form)
 
 @app.route('/survey/connections',methods=['GET', 'POST'])
@@ -70,7 +79,6 @@ def connections():
     if current_user.is_anonymous:
         return redirect(url_for('login'))
     form = ConnectionsForm()
-
     if form.validate_on_submit():
         return redirect(url_for('relationships'))
     flash('Please complete this step before proceeding.')
