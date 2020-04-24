@@ -33,15 +33,16 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Email address is associated with an existing account.')
 
 class ActivitiesForm(FlaskForm):
-    activityField = SelectMultipleField("Activities", coerce=int,default=1)
+    activityField = SelectMultipleField("Activities", coerce=int)
     submit = SubmitField()
-    def __init__(self):
+    def __init__(self, temp):
         super(ActivitiesForm, self).__init__()        
         options = []
+        defaults = []
         if Activity is not None:
             for a in Activity.query.all():
                 options.append((a.id, a.name))
-            self.activityField.choices = options    
+            self.activityField.choices = options  
 
 class ConnectionsForm(FlaskForm):
     closefriends = SelectMultipleField("Close friends", [],
@@ -49,5 +50,5 @@ class ConnectionsForm(FlaskForm):
             render_kw={"multiple": "multiple"})
     classfriends = SelectMultipleField("Friends from lunch or class", [],
             choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
-            render_kw={"multiple": "multiple"},default=[("xc","Cross Country")])
+            render_kw={"multiple": "multiple"}, default=["tc","ehe"])
     submit = SubmitField()
