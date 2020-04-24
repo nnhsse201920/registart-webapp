@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -16,15 +17,15 @@
 {% endblock %}
 
 {% block content %}
-    <div id="navbar">
-            <a class="registart-logo" href="{{ url_for('index') }}"><img src="/static/registart-logo.png"></a>
-            {% if current_user.is_anonymous %}
-            <a class="loginlink" href="{{ url_for('login') }}">Login</a>
-            <a class="registerlink" href="{{ url_for('register') }}">Register</a>
-            {% else %}
-            <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>         
-            {% endif %}
-    </div>
+<div id="navbar" style="font-family: 'Open Sans', sans-serif;">
+    <a class="registart-logo" href="{{ url_for('index') }}"><img src="/static/registart-logo.png"></a>
+    {% if current_user.is_anonymous %}
+        <a class="loginlink" href="{{ url_for('login') }}">Login</a>
+        <a class="registerlink" href="{{ url_for('register') }}">Register</a>
+    {% else %}
+        <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>         
+    {% endif %}
+</div>
 
     {% block landing_page %}
     {% endblock %}
