@@ -22,7 +22,7 @@
         
         #bg-img2 {
             background-image: url('/static/landing.jpg');
-            height: 105%;
+            height: auto;
             border-bottom: 0.5vh solid #2B427C;
             background-attachment: fixed;
             background-position: center;
@@ -61,7 +61,6 @@
             font-size: 7.5vh;
             width: 100%;
             font-weight: 700;
-            padding-bottom: 5px;
             font-family: "Montserrat", sans-serif;
         }
 
@@ -116,11 +115,12 @@
 
         #registart-footer{
             text-align:center;
-            padding-top:40px;
-            padding-bottom:40px;
+            padding-top:2.5vh;
+            padding-bottom:2.5vh;
             bottom:0;
             position: relative;
-            height:100px;
+            height: auto;
+            border-bottom: 0.5vh solid #2B427C;
         }
 
         #footer-text{
@@ -166,11 +166,6 @@
         
         }
 
-        .fa-instagram {
-            background: #125688;
-            color: white;
-            }
-
         .fa-github {
             background:black;
             color: white;
@@ -191,8 +186,8 @@
             border-radius: 0 0 4px 4px;
             box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
             margin-bottom: 2vh;
-            width: 40vh;
-            height: 50vh;
+            width: 18vw;
+            height: 60vh;
             float:left;
             margin-left: 0.5vw;
             margin-right: 0.5vw;
@@ -207,8 +202,8 @@
         }
 
         #boxtext{
-            font-size: 2vh;
-            padding: 2vh;
+            font-size: 2.25vh;
+            padding: 1vw;
         }
 
         #video{
@@ -219,10 +214,9 @@
         #video:hover{
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.38);
         }
-       
-    </style>
-</head>
 
+</style>
+</head>
 <body>
     <div id="bg-img">
         <div class="text-center"> 
@@ -239,7 +233,10 @@
     </div>
 
     <div id="registart-info">
-        <div id="title" style="padding-top: 2.5vh;">About RegiStart</div>
+        <div class="container">
+            <div id="title" style="color: rgb(128,0,0);">About RegiStart</div>
+            <hr>
+        </div>
             <div id="aboutText" style="font-family: 'Montserrat', sans-serif;font-weight: 700;">What is the goal of RegiStart?</div>
             <div id="aboutText" style="color: #666666;">To increase youth voter registration from 50% to 80%.</div>
             <div id="aboutText" style="font-family: 'Montserrat', sans-serif;font-weight: 700;">How does RegiStart work?</div>
@@ -258,7 +255,7 @@
     </div>
     <div id="bg-img2">
         <div class="text-center">
-            <div id="title" style="padding-top:2.5vh;color:white;font-size: 10vh;">Our Mission</div>
+            <div id="title" style="padding-top:2.5vh;color:white;font-size: 10vh;">RegiStart's Mission</div>
             <div id="video-container">
                 <iframe width="962" height="541" src="https://www.youtube.com/embed/Y7ffyVWvzuw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; 
                 gyroscope; picture-in-picture" allowfullscreen id="video"></iframe>
@@ -266,49 +263,52 @@
         </div>
     </div>
     <div class="text-center"> 
-        <div id="title" style="padding-top:5vh;">The Survey Process</div>
+        <div class="container">
+            <div id="title" style="color: rgb(128,0,0);">The Survey Process</div>
+            <hr>
+        </div>
         <div id="registart-info">
-            <div class="container" style="max-width: 95vw;">
+            <div class="container" style="max-width: 90vw;">
                 <div class="about-col">
                     <div class="img">
                         <img src="/static/sports.jpg" alt="" class="img-fluid">
                     </div>
-                    <h2 class="title" style="padding-top: 2vh;">Identify Your Activities</h2>
+                    <h2 style="padding-top: 2vh;">Identify Your Activities</h2>
                     <div id="boxtext">
                         Enter the activities that you participate within your club or organization.
                     </div>
                 </div>
-                <i class="fa fa-arrow-right" style="font-size:30px;float: left;padding-top: 22.5vh;"></i>
+                <i class="fa fa-arrow-right" style="font-size:5vh;float: left;padding-top: 22.5vh;margin:0px;"></i>
                 <div class="about-col">
                     <div class="img">
                         <img src="/static/students.jpg" alt="" class="img-fluid">
                     </div>
-                    <h2 class="title" style="padding-top: 2vh;">Enter Your Connections</h2>
+                    <h2 style="padding-top: 2vh;">Enter Your Connections</h2>
                     <div id="boxtext">
                         Enter the names of your students who you share a close connection with and those you know 
                         within your activities.
                     </div>
                 </div>
-                <i class="fa fa-arrow-right" style="font-size:30px;float: left;padding-top: 22.5vh;"></i>
+                <i class="fa fa-arrow-right" style="font-size:5vh;float: left;padding-top: 22.5vh;margin:0px;"></i>
                 <div class="about-col">
                     <div class="img">
                         <img src="/static/relationships.jpeg" alt="" class="img-fluid">
                     </div>
-                    <h2 class="title" style="padding-top: 2vh;">Rank Your Relationships</h2>
+                    <h2 style="padding-top: 2vh;">Rank Your Relationships</h2>
                     <div id="boxtext">
                         After identifying the people you know out of your senior class, you will then proceed to rank the 
                         strength of your relationships with them.
                     </div>
                 </div>
-                <i class="fa fa-arrow-right" style="font-size:30px;float: left;padding-top: 22.5vh;"></i>
+                <i class="fa fa-arrow-right" style="font-size:5vh;float: left;padding-top: 22.5vh;margin:0px;"></i>
                 <div class="about-col">
                     <div class="img">
                         <img src="/static/phone.jpg" alt="" class="img-fluid">
                     </div>
-                    <h2 class="title" style="padding-top: 2vh;">Obtain Your connections</h2>
+                    <h2 style="padding-top: 2vh;">Obtain Your connections</h2>
                     <div id="boxtext">
                         After completing the survey, download the free RegiStart mobile app to view the list of students that have been assigned to
-                        you as an organizer. Then, you're all set to go!
+                        you as an organizer.
                     </div>
                 </div>
             </div>

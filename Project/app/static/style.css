@@ -109,7 +109,7 @@ html {
 }
 
 #aboutHeader{
-    color: rgb(102, 26, 16);
+    color: rgb(128,0,0);
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     font-weight: bold;
@@ -117,11 +117,10 @@ html {
 }
 
 #nameHeader{
-  color: rgb(102, 26, 16);
+  color: rgb(128,0,0);
   font-family: 'Montserrat', sans-serif;
   font-size: 40px;
   font-weight: bold;
-
 }
 
 #boldtext{
