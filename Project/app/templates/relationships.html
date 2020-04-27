@@ -5,11 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet">
 </head>
 <body>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
@@ -17,6 +15,7 @@
                 <h4 style="padding-bottom: 20px;">Do you know this person?</h4>
                 
             <hr>
+            <form action="{{url_for('relationships')}}" method="post" name="relationshipsform"></form>
                 <center><h3 id="studentName" style="margin-top: 35px">{{stuNames[0]}}</h3></center>
                 <button id="yes" class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">
                     Yes
@@ -58,11 +57,11 @@
                         });     
                     });
                 </script>
-                
-            </div>
-            <div class="col-md-8 col-md-offset-2">
+                <a href="{{ url_for('mobile') }}">
                 <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 50px;background-color:#2B427C;">
+                </a>
                 <a href="{{ url_for('activities') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 50px;"> Back </a>  
+            </form>
             </div>
         </div>
     </div>
