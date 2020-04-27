@@ -63,11 +63,11 @@ def activities():
     db.session.commit()
     form = ActivitiesForm()
     if form.validate_on_submit():
-        userActivities = form.activityField.data # the IDs of activities that the user selected
-        for i in range(len(userActivities)):
-            for activity in Activity.query.all():
-                if userActivities[i] == activity.id:
-                    activity = Activity.query.filter_by(id=activity.id).first()
+        userActivities = form.activityField.data # list of IDs of the activities that the user selected
+        for i in userActivities:
+            for a in Activity.query.all():
+                if i == a.id:
+                    activity = Activity.query.filter_by(id=a.id).first()
                     activity.members.append(user) 
         db.session.commit()
         return redirect(url_for('relationships'))
@@ -81,7 +81,6 @@ def connections():
     form = ConnectionsForm()
     if form.validate_on_submit():
         return redirect(url_for('relationships'))
-    flash('Please complete this step before proceeding.')
     return render_template('connections.html', title='Connections', isOnSurvey=True,form=form)
 
 @app.route('/survey/relationships', methods=['GET', 'POST'])
@@ -89,10 +88,16 @@ def connections():
 def relationships():
     if current_user.is_anonymous:
         return redirect(url_for('index'))
-    flash('Please complete this step before proceeding.')
     cursor = dbConnect.cursor()
     cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
     stuNames = cursor.fetchall()
     stuNames = [i[0] for i in stuNames]
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
 
+@app.route('/survey/end', methods=['GET', 'POST'])
+@login_required
+def mobile():
+    if current_user.is_anonymous:
+        return redirect(url_for('index'))
+    return render_template('mobile.html', title="Survey Complete", isOnSurvey=True)
+    
