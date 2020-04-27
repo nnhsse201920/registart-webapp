@@ -28,7 +28,7 @@ class Organizers(UserMixin, db.Model):
 
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), unique=True)
+    name = db.Column(db.VARCHAR(64), unique=True)
 
     def __str__(self):
         return self.name
