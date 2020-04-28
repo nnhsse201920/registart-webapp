@@ -10,7 +10,7 @@ participants = db.Table('participants',
 
 connections = db.Table('connections',
     db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id')),
-    db.Column('student_id',db.Integer,db.ForeignKey('students.id'))
+    db.Column('connection_id',db.Integer,db.ForeignKey('connection.id'))
     )
 
 class Organizers(UserMixin, db.Model):
@@ -24,7 +24,7 @@ class Organizers(UserMixin, db.Model):
 
     activities = db.relationship('Activity', secondary=participants, backref=db.backref('members', lazy='dynamic'))
     
-    relationships = db.relationship('Students',secondary=connections, backref=db.backref('known',lazy='dynamic'))
+    relationships = db.relationship('Connection',secondary=connections, backref=db.backref('known',lazy='dynamic'))
 
     def __repr__(self):
         return '<Organizer> {}'.format(self.username)
@@ -44,7 +44,8 @@ class Activity(db.Model):
     
 class Connection(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.VARCHAR(64), unique=True)
+    firstN = db.Column(db.VARCHAR(64), unique=True)
+    lastN = db.Column(db.VARCHAR(64), unique=True)
     
     def __str__(self):
         return self.name

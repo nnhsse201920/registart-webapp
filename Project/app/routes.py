@@ -93,12 +93,20 @@ def relationships():
     stuNames = cursor.fetchall()
     stuNames = [i[0] for i in stuNames]
     user = Organizers.query.filter_by(username=current_user.username).first()
-    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames, db=db, user=user, connections=Connection)
+    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
 
 @app.route('/students',  methods=['GET', 'POST'])
 def students():
+    user = Organizers.query.filter_by(username=current_user.username).first()
     if request.method == "POST":
-        print(request.data)
+        name = request.data.decode("utf-8").split()
+        name = str(name)
+        for s in Students.query.all():
+            if s.firstN == name[0] and s.lastN == name[1]:
+                student = Connection(firstN=s.firstN, lastN=s.lastN)
+                student.known.append(user)
+                db.session.add(student)
+                db.session.commit()                   
     return ""
 
 @app.route('/survey/end', methods=['GET', 'POST'])
