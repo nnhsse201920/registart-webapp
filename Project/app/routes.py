@@ -95,6 +95,12 @@ def relationships():
     user = Organizers.query.filter_by(username=current_user.username).first()
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames, db=db, user=user, connections=Connection)
 
+@app.route('/students',  methods=['GET', 'POST'])
+def students():
+    if request.method == "POST":
+        print(request.data)
+    return ""
+
 @app.route('/survey/end', methods=['GET', 'POST'])
 @login_required
 def mobile():
