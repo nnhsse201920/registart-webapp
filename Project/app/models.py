@@ -4,8 +4,13 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 participants = db.Table('participants',
-    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id'), primary_key=True),
-    db.Column('activity_id',db.Integer,db.ForeignKey('activity.id'), primary_key=True)
+    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id')),
+    db.Column('activity_id',db.Integer,db.ForeignKey('activity.id'))
+    )
+
+connections = db.Table('connections',
+    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id')),
+    db.Column('student_id',db.Integer,db.ForeignKey('students.id'))
     )
 
 class Organizers(UserMixin, db.Model):
@@ -19,7 +24,7 @@ class Organizers(UserMixin, db.Model):
 
     activities = db.relationship('Activity', secondary=participants, backref=db.backref('members', lazy='dynamic'))
     
-    #relationships = db.relationship('Connection',secondary=connections, backref=db.backref('known',lazy='dynamic'))
+    relationships = db.relationship('Students',secondary=connections, backref=db.backref('known',lazy='dynamic'))
 
     def __repr__(self):
         return '<Organizer> {}'.format(self.username)
