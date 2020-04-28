@@ -2,15 +2,26 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-danger" role="alert" style="margin-left: 200px; margin-right: 200px;margin-top: 20px;">
+          {{ message }}
+      </div>
+      {% endfor %}
+  {% endif %}
+  {% endwith %}
 <div class="container" style="display: flex; justify-content: center;align-items: center;flex-direction: column">
   <h1 id="aboutHeader" style="text-align: center;">Sign In</h1>
     <form action="" method="post" class="form" role="form">
         {{ form.csrf_token() }}
-         {{ wtf.form_field(form.username, style="width:500px") }}
-         {{ wtf.form_field(form.password, style="width:500px") }}
+         {{ wtf.form_field(form.username, style="width:25vw;height:40px;") }}
+         {{ wtf.form_field(form.password, style="width:25vw;height:40px;") }}
          {{ wtf.form_field(form.remember_me) }}
-       <div style="padding-bottom: 5px;"><input type=submit class='btn btn-primary' value="Sign In"></div>
-       <a href="{{ url_for('register') }}"> Create Account </a>
+       <div style="padding-bottom: 5px;"><input type='submit' class='btn btn-primary btn-lg btn-block' value="Sign In"></div>
+       <div style="padding:2.5vh;">
+          <center><a href="{{ url_for('register') }}">Create Account</a></center>
+       </div>
       </form>
 </div>
 {% endblock %}

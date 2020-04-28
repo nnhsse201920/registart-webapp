@@ -92,7 +92,8 @@ def relationships():
     cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
     stuNames = cursor.fetchall()
     stuNames = [i[0] for i in stuNames]
-    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
+    user = Organizers.query.filter_by(username=current_user.username).first()
+    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames, db=db, user=user, connections=Connection)
 
 @app.route('/survey/end', methods=['GET', 'POST'])
 @login_required

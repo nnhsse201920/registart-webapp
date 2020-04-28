@@ -18,6 +18,8 @@ class Organizers(UserMixin, db.Model):
     password = db.Column(db.VARCHAR(255), index=True)
 
     activities = db.relationship('Activity', secondary=participants, backref=db.backref('members', lazy='dynamic'))
+    
+    #relationships = db.relationship('Connection',secondary=connections, backref=db.backref('known',lazy='dynamic'))
 
     def __repr__(self):
         return '<Organizer> {}'.format(self.username)
@@ -30,6 +32,15 @@ class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.VARCHAR(64), unique=True)
 
+    def __str__(self):
+        return self.name
+    def __repr__(self):
+        return '<Activity> {}'.format(self.name)
+    
+class Connection(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.VARCHAR(64), unique=True)
+    
     def __str__(self):
         return self.name
     def __repr__(self):
