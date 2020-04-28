@@ -30,12 +30,16 @@
                     $(function()
                         {  
                         $("#yes").click(function(){
-                            num++;                                   
+                            num++;         
+                            if (num < studentList.length){                
                             document.getElementById("studentName").innerText = studentList[num]
+                        }
                         });
                         $("#no").click(function(){
-                            num++;                                   
+                            num++;  
+                            if (num < studentList.length) {                             
                             document.getElementById("studentName").innerText = studentList[num]
+                        }
                         });
                         $(document).focus();                      
                         $(document).keydown(function(e){
