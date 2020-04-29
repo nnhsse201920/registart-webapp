@@ -114,7 +114,7 @@ def studentrankings():
         relations = user.relationships
         name = request.data.decode("utf-8").split()
         for i in relations:
-            if name[0] == i.firstN and name[1] == i.lastN:
+            if (name[0] == i.firstN and name[1] == i.lastN) and i.user_id == user.id:
                 if name[len(name)-1] == "1":
                     i.ranking = 1
                 elif name[len(name)-1] == "2":
