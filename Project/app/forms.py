@@ -44,10 +44,14 @@ class ActivitiesForm(FlaskForm):
             self.activityField.choices = options
 
 class ConnectionsForm(FlaskForm):
-    closefriends = SelectMultipleField("Close friends", [],
-            choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
-            render_kw={"multiple": "multiple"})
-    classfriends = SelectMultipleField("Friends from lunch or class", [],
-            choices=[("tc", "Tom Carsello"), ("lz", "Luke Zhang"), ("ehe", "Ethan He"),("jame","James Huang")],
-            render_kw={"multiple": "multiple"}, default=["tc","ehe"])
+    closefriends = SelectMultipleField("Close friends",coerce=int)
+    classfriends = SelectMultipleField("Friends from lunch or class",coerce=int)
     submit = SubmitField()
+    def __init__(self):
+        super(ConnectionsForm, self).__init__()
+        options = []
+        if Activity is not None:
+            for s in Students.query.all():
+                options.append((s.id, s.firstN + " " + s.lastN))
+            self.closefriends.choices = options
+            self.classfriends.choices = options
