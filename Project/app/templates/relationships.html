@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block styles %}
+{{ super() }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
 {% block app_content %}
 <html class = "no-js lang = "">
 <head>
@@ -8,7 +13,7 @@
 </head>
 <body>
     
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
                 <h1 id="aboutHeader">Relationships</h1>
@@ -72,11 +77,10 @@
                         });     
                     });
                 </script>
-                <a href="{{ url_for('mobile') }}">
-                <input type=submit class='btn btn-primary pull-right' value=" Next " style="margin-bottom: 25px;margin-top: 50px;background-color:#2B427C;">
-                </a>
-                <a href="{{ url_for('activities') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 50px;"> Back </a>  
-            </form>
+                <div class="col-md-8 col-md-offset-2">
+                    <a href="{{ url_for('rankings') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 50px;background-color:#2B427C;"> Next </a>  
+                    <a href="{{ url_for('activities') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 50px;"> Back </a>  
+                </div>
             </div>
         </div>
     </div>

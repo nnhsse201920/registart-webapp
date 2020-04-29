@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+
+{% block styles %}
+{{ super() }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block app_content %}
+<html class="no-js" lang="">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <form action="{{ url_for('rankings') }}" method="post"></form>
+                    
+                    <h1 id="aboutHeader">Rank Your Relationships</h1>
+                    <h4 style="padding-bottom: 20px;">How well do you know this person?</h4>
+                    <hr>
+                        <center><h3 id="studentName" style="margin-top: 35px;"></h3></center>
+                        <button id="verywell" class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">Very Well</button>
+                        <button id="well" class='btn btn-info' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">Well</button>
+                        <button id="somewhat" class='btn btn-warning' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">Somewhat</button>
+                        <button id="notmuch" class='btn btn-danger' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">Not Much</button>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                        <script type="text/javascript">
+                            var studentList = JSON.parse('{{students|tojson}}');
+                            var num = 0;
+                            document.getElementById("studentName").innerText = studentList[num]
+                            $(function(){  
+                                $("#verywell").click(function(){
+                                    if (num < studentList.length){
+                                        var req = new XMLHttpRequest();
+                                        req.open("POST",'/studentrankings',true)
+                                        req.setRequestHeader('Content-Type','application/json');
+                                        req.send(document.getElementById("studentName").innerText + " " + "4");}
+                                    num++;
+                                    if (num < studentList.length){               
+                                        document.getElementById("studentName").innerText = studentList[num]
+                                    }
+                                });
+                                $("#well").click(function(){  
+                                    if (num < studentList.length){
+                                        var req = new XMLHttpRequest();
+                                        req.open("POST",'/studentrankings',true)
+                                        req.setRequestHeader('Content-Type','application/json');
+                                        req.send(document.getElementById("studentName").innerText + " " + "3");}
+                                    num++;   
+                                    if (num < studentList.length) {                          
+                                        document.getElementById("studentName").innerText = studentList[num]
+                                    }
+                                });
+                                $("#somewhat").click(function(){  
+                                    if (num < studentList.length){
+                                        var req = new XMLHttpRequest();
+                                        req.open("POST",'/studentrankings',true)
+                                        req.setRequestHeader('Content-Type','application/json');
+                                        req.send(document.getElementById("studentName").innerText + " " + "2");}
+                                    num++;   
+                                    if (num < studentList.length) {                          
+                                        document.getElementById("studentName").innerText = studentList[num]
+                                    }
+                                });
+                                $("#notmuch").click(function(){  
+                                    if (num < studentList.length){
+                                        var req = new XMLHttpRequest();
+                                        req.open("POST",'/studentrankings',true)
+                                        req.setRequestHeader('Content-Type','application/json');
+                                        req.send(document.getElementById("studentName").innerText + " " + "1");}
+                                    num++;   
+                                    if (num < studentList.length) {                          
+                                        document.getElementById("studentName").innerText = studentList[num]
+                                    }
+                                });
+                            });
+                        </script>
+                        <div class="col-md-8 col-md-offset-2">
+                            <a href="{{ url_for('mobile') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 50px;background-color:#2B427C;"> Next </a>  
+                            <a href="{{ url_for('relationships') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 50px;"> Back </a>  
+                        </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

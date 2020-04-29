@@ -95,6 +95,37 @@ def relationships():
     user = Organizers.query.filter_by(username=current_user.username).first()
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
 
+@app.route('/survey/rankings', methods=['GET','POST'])
+@login_required
+def rankings():
+    if current_user.is_anonymous:
+        return redirect(url_for('index'))
+    students = []
+    user = Organizers.query.filter_by(username=current_user.username).first()
+    userRelationships = user.relationships
+    for u in userRelationships:
+        students.append(u.firstN + " " + u.lastN)
+    return render_template('rankings.html', title = 'Rankings', isOnSurvey=True, students=students)
+
+@app.route('/studentrankings', methods=['GET','POST'])
+def studentrankings():
+    user = Organizers.query.filter_by(username=current_user.username).first()
+    if request.method == "POST":
+        relations = user.relationships
+        name = request.data.decode("utf-8").split()
+        for i in relations:
+            if name[0] == i.firstN and name[1] == i.lastN:
+                if name[len(name)-1] == "1":
+                    i.ranking = 1
+                elif name[len(name)-1] == "2":
+                    i.ranking = 2
+                elif name[len(name)-1] == "3":
+                    i.ranking = 3
+                else:
+                    i.ranking = 4
+        db.session.commit()
+    return ""
+
 @app.route('/students',  methods=['GET', 'POST'])
 def students():
     user = Organizers.query.filter_by(username=current_user.username).first()
@@ -116,7 +147,7 @@ def students():
                 if s.firstN == name[0] and s.lastN == name[1]:
                     for u in user.relationships:
                         if s.firstN == u.firstN and s.lastN == u.lastN:
-                            student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN).first()
+                            student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN,user_id=user.id).first()   
                             user.relationships.remove(student)
                             db.session.delete(student)
                     db.session.commit()         

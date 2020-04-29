@@ -1,12 +1,23 @@
 {% extends "base.html" %}
 
+{% block styles %}
+{{ super() }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+{% endblock %}
+
 {% block app_content %}
 <html>
     <body>
         <div class="container">
-            <a href="{{ url_for('logout') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 50px;background-color:#2B427C;"> Complete this step </a>  
+            <center><h1 id="aboutHeader">You're Almost Done!</h1></center>
+            <center><h4>Scan the QR Code to be redirected to the mobile app to see your targets</h4></center>
+            <center><img src="/static/cprewritten.png"><center></center>
+            <div class="col-md-8 col-md-offset-2">
+                <a href="{{ url_for('rankings') }}" class="btn btn-default pull-left" role="button" style="margin-bottom: 25px;margin-top: 50px;font-style:'Montserrat', sans-serif;"> Back </a> 
+                <a href="{{ url_for('logout') }}" class="btn btn-primary pull-right" role="button" style="margin-bottom: 25px;margin-top: 50px;background-color:#2B427C;""> Complete Survey </a>  
+            </div>  
         </div>
     </body>
 </html>
-
 {% endblock %}
