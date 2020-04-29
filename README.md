@@ -44,14 +44,14 @@ Input the following commands into the terminal to set up a virtual environment: 
 ```
 $ python -m venv venv       # create a virtual environment for Python 
 $ venv\scripts\activate     # activate the virtual environment  
-$ pip install -r req.txt    # install all the packages needed for the app to run
+$ pip install -r requirements.txt    # install all the packages needed for the app to run
 ```
 
 <strong>MacOS X:</strong><br/>
 ```
 $ python3 -m venv venv 
 $ source venv/bin/activate 
-$ pip3 install -r req.txt 
+$ pip3 install -r requirements.txt 
 ```
 
 # Running the Application
@@ -66,7 +66,7 @@ In the terminal, input the following commands.<br/>
 (venv) $ flask db migrate
 (venv) $ flask db upgrade
 ```
-<br/><strong>Start Server: </strong><br/>
+<br/><strong>Starting the server: </strong><br/>
 ```
 (venv) $ flask run
 ```
