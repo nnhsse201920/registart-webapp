@@ -8,11 +8,6 @@ participants = db.Table('participants',
     db.Column('activity_id',db.Integer,db.ForeignKey('activity.id'),primary_key=True)
     )
 
-connections = db.Table('connections',
-    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id'),primary_key=True),
-    db.Column('connection_id',db.Integer,db.ForeignKey('connection.id'),primary_key=True)
-    )
-
 class Organizers(UserMixin, db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     firstN = db.Column(db.VARCHAR(255), index=True)
@@ -24,7 +19,7 @@ class Organizers(UserMixin, db.Model):
 
     activities = db.relationship('Activity', secondary=participants, backref=db.backref('members', lazy='dynamic'))
     
-    relationships = db.relationship('Connection',secondary=connections, backref=db.backref('known',lazy='dynamic'))
+    relationships = db.relationship('Connection',backref='connections',lazy='dynamic')
 
     def __repr__(self):
         return '<Organizer> {}'.format(self.username)
@@ -46,9 +41,11 @@ class Connection(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstN = db.Column(db.VARCHAR(64))
     lastN = db.Column(db.VARCHAR(64))
+    ranking = db.Column(db.SmallInteger())
+    user_id = db.Column(db.Integer,db.ForeignKey('organizers.id'))
     
     def __str__(self):
-        return self.firstN
+        return '{} {}'.format(self.firstN,self.lastN)
     def __repr__(self):
         return '<Connection> {} {}'.format(self.firstN,self.lastN)
 

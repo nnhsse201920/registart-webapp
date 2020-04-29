@@ -101,24 +101,25 @@ def students():
     if request.method == "POST":
         name = request.data.decode("utf-8").split()
         if name[len(name)-1] == "1":
-            name = request.data.decode("utf-8").split()
             for s in Students.query.all():
                 if s.firstN == name[0] and s.lastN == name[1]:
-                    student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN).first()
-                    if student == None:
+                    namePresent = False
+                    for u in user.relationships:
+                        if s.firstN == u.firstN and s.lastN == u.lastN:
+                            namePresent = True
+                    if namePresent == False:
                         student = Connection(firstN=s.firstN,lastN=s.lastN)
-                    if student not in user.relationships:
-                        user.relationships.append(student)  
+                        user.relationships.append(student)
                     db.session.commit()   
         elif name[len(name)-1] == "0":
             for s in Students.query.all():
                 if s.firstN == name[0] and s.lastN == name[1]:
-                    student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN).first()
-                    if student == None:
-                        student = Connection(firstN=s.firstN,lastN=s.lastN)
-                    if student in user.relationships:
-                        user.relationships.remove(student)  
-                    db.session.commit()        
+                    for u in user.relationships:
+                        if s.firstN == u.firstN and s.lastN == u.lastN:
+                            student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN).first()
+                            user.relationships.remove(student)
+                            db.session.delete(student)
+                    db.session.commit()         
     return ""
 
 @app.route('/survey/end', methods=['GET', 'POST'])
