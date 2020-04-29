@@ -16,7 +16,7 @@
                 
             <hr>
             <form action="{{url_for('relationships')}}" method="post" name="relationshipsform"></form>
-                <center><h3 id="studentName" style="margin-top: 35px">{{stuNames[0]}}</h3></center>
+                <center><h3 id="studentName" style="margin-top: 35px"></h3></center>
                 <button id="yes" class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px" onclick="move()">
                     Yes
                 </button>
@@ -27,15 +27,30 @@
                 <script type="text/javascript">
                     var studentList = JSON.parse('{{stuNames|tojson}}');
                     var num = 0;
+                    document.getElementById("studentName").innerText = studentList[num]
                     $(function()
                         {  
                         $("#yes").click(function(){
-                            num++;                                   
-                            $("#studentName").text(studentList[num]);
+                            if (num < studentList.length){
+                                var req = new XMLHttpRequest();
+                                req.open("POST",'/students',true)
+                                req.setRequestHeader('Content-Type','application/json');
+                                req.send(document.getElementById("studentName").innerText + " " + "1");}
+                            num++;
+                            if (num < studentList.length){               
+                                document.getElementById("studentName").innerText = studentList[num]
+                        }
                         });
-                        $("#no").click(function(){
-                            num++;                                   
-                            $("#studentName").text(studentList[num]);
+                        $("#no").click(function(){  
+                            if (num < studentList.length){
+                                var req = new XMLHttpRequest();
+                                req.open("POST",'/students',true)
+                                req.setRequestHeader('Content-Type','application/json');
+                                req.send(document.getElementById("studentName").innerText + " " + "0");}
+                            num++;   
+                            if (num < studentList.length) {                          
+                                document.getElementById("studentName").innerText = studentList[num]
+                        }
                         });
                         $(document).focus();                      
                         $(document).keydown(function(e){

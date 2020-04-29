@@ -92,7 +92,34 @@ def relationships():
     cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
     stuNames = cursor.fetchall()
     stuNames = [i[0] for i in stuNames]
+    user = Organizers.query.filter_by(username=current_user.username).first()
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
+
+@app.route('/students',  methods=['GET', 'POST'])
+def students():
+    user = Organizers.query.filter_by(username=current_user.username).first()
+    if request.method == "POST":
+        name = request.data.decode("utf-8").split()
+        if name[len(name)-1] == "1":
+            name = request.data.decode("utf-8").split()
+            for s in Students.query.all():
+                if s.firstN == name[0] and s.lastN == name[1]:
+                    student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN).first()
+                    if student == None:
+                        student = Connection(firstN=s.firstN,lastN=s.lastN)
+                    if student not in user.relationships:
+                        user.relationships.append(student)  
+                    db.session.commit()   
+        elif name[len(name)-1] == "0":
+            for s in Students.query.all():
+                if s.firstN == name[0] and s.lastN == name[1]:
+                    student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN).first()
+                    if student == None:
+                        student = Connection(firstN=s.firstN,lastN=s.lastN)
+                    if student in user.relationships:
+                        user.relationships.remove(student)  
+                    db.session.commit()        
+    return ""
 
 @app.route('/survey/end', methods=['GET', 'POST'])
 @login_required

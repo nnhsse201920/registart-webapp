@@ -4,8 +4,13 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 participants = db.Table('participants',
-    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id'), primary_key=True),
-    db.Column('activity_id',db.Integer,db.ForeignKey('activity.id'), primary_key=True)
+    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id'),primary_key=True),
+    db.Column('activity_id',db.Integer,db.ForeignKey('activity.id'),primary_key=True)
+    )
+
+connections = db.Table('connections',
+    db.Column('organizer_id',db.Integer,db.ForeignKey('organizers.id'),primary_key=True),
+    db.Column('connection_id',db.Integer,db.ForeignKey('connection.id'),primary_key=True)
     )
 
 class Organizers(UserMixin, db.Model):
@@ -18,6 +23,8 @@ class Organizers(UserMixin, db.Model):
     password = db.Column(db.VARCHAR(255), index=True)
 
     activities = db.relationship('Activity', secondary=participants, backref=db.backref('members', lazy='dynamic'))
+    
+    relationships = db.relationship('Connection',secondary=connections, backref=db.backref('known',lazy='dynamic'))
 
     def __repr__(self):
         return '<Organizer> {}'.format(self.username)
@@ -34,22 +41,28 @@ class Activity(db.Model):
         return self.name
     def __repr__(self):
         return '<Activity> {}'.format(self.name)
+    
+class Connection(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    firstN = db.Column(db.VARCHAR(64))
+    lastN = db.Column(db.VARCHAR(64))
+    
+    def __str__(self):
+        return self.firstN
+    def __repr__(self):
+        return '<Connection> {} {}'.format(self.firstN,self.lastN)
 
 class Assignments(db.Model):
     organizerID = db.Column(db.Integer(), primary_key=True)
     studentID = db.Column(db.Integer(), index=True, unique=True)
     lastContact = db.Column(db.DateTime, index=True, unique=True)
-    status = db.Column(db.Integer(), index=True, unique=True)
-    medium = db.Column(db.Integer(), index=True, unique=True)      
-                               
-class Organizations(db.Model):
-    id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.VARCHAR(255), index=True, unique=True)
+    status = db.Column(db.Integer(), index=True)
+    medium = db.Column(db.Integer(), index=True)                                  
 
 class Students(UserMixin, db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    firstN = db.Column(db.VARCHAR(255), index=True, unique=True)
-    lastN = db.Column(db.VARCHAR(255), index=True, unique=True)
+    firstN = db.Column(db.VARCHAR(255), index=True)
+    lastN = db.Column(db.VARCHAR(255), index=True)
     targetID = db.Column(db.VARBINARY(255), index=True, unique=True)
     organizationID = db.Column(db.Integer(), index=True, unique=True)
     isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)          

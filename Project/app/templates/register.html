@@ -3,18 +3,18 @@
 
 {% block app_content %}
     <div class="container" style="display: flex; justify-content:center;align-items:center;flex-direction: column;">
-        <h1 id="aboutHeader">Organizer Registration</h1>
+        <h1 id="aboutHeader">Registration</h1>
         <form action="" method="post" class="form" role="form">
             {{ form.csrf_token() }}
-        <d1>
-            {{ wtf.form_field(form.firstname, style="width:500px") }}
-            {{ wtf.form_field(form.lastname, style="width:500px") }}
-            {{ wtf.form_field(form.username, style="width:500px") }}
-            {{ wtf.form_field(form.email, style="width:500px") }}
-            {{ wtf.form_field(form.password, style="width:500px") }}
-            {{ wtf.form_field(form.password2, style="width:500px") }}
-        </d1>
-        <div><input type=submit class='btn btn-success' value=" Create Account "> </div>
+        <div>
+            {{ wtf.form_field(form.firstname, style="width:400px;height:40px;") }}
+            {{ wtf.form_field(form.lastname, style="width:400px;height:40px;") }}
+            {{ wtf.form_field(form.username, style="width:400px;height:40px;") }}
+            {{ wtf.form_field(form.email, style="width:400px;height:40px;") }}
+            {{ wtf.form_field(form.password, style="width:400px;height:40px;") }}
+            {{ wtf.form_field(form.password2, style="width:400px;height:40px;") }}
+        </div>
+        <input type='submit' class='btn btn-success btn-lg btn-block'style="background-color:#228B22;margin-bottom: 5vh;" value="Create Account"></div>
         </form>
     </div>
 {% endblock %}
