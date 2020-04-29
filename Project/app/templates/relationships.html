@@ -35,13 +35,18 @@
                                 var req = new XMLHttpRequest();
                                 req.open("POST",'/students',true)
                                 req.setRequestHeader('Content-Type','application/json');
-                                req.send(document.getElementById("studentName").innerText);}
+                                req.send(document.getElementById("studentName").innerText + " " + "1");}
                             num++;
                             if (num < studentList.length){               
                                 document.getElementById("studentName").innerText = studentList[num]
                         }
                         });
                         $("#no").click(function(){  
+                            if (num < studentList.length){
+                                var req = new XMLHttpRequest();
+                                req.open("POST",'/students',true)
+                                req.setRequestHeader('Content-Type','application/json');
+                                req.send(document.getElementById("studentName").innerText + " " + "0");}
                             num++;   
                             if (num < studentList.length) {                          
                                 document.getElementById("studentName").innerText = studentList[num]
