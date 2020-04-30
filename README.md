@@ -22,7 +22,10 @@ By taking this survey, sudent organizers will be able the know exactly what Regi
 # Platform Requirements
 - Windows 7 or above <br/>
 - MacOS X Compatible <br/>
-- [VSCode](https://code.visualstudio.com/) needed
+- [VSCode](https://code.visualstudio.com/) 
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows Pro editions
+- [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows) for Windows consumer editions
+
 
 # Configuration 
 To setup this project, ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) are installed. <br/>
