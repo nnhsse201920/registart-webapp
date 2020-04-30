@@ -20,10 +20,10 @@
 <div id="navbar" style="font-family: 'Open Sans', sans-serif;">
     <a class="registart-logo" href="{{ url_for('index') }}"><img src="/static/registart-logo.png"></a>
     {% if current_user.is_anonymous %}
-        <a class="loginlink" href="{{ url_for('login') }}">Login</a>
-        <a class="registerlink" href="{{ url_for('register') }}">Register</a>
+        <a class="loginlink" href="{{ url_for('login') }}" style="font-family: 'Montserrat', sans-serif;">Login</a>
+        <a class="registerlink" href="{{ url_for('register') }}" style="font-family: 'Montserrat', sans-serif;">Register</a>
     {% else %}
-        <a class="logoutlink" href="{{ url_for('logout') }}">Logout</a>         
+        <a class="logoutlink" href="{{ url_for('logout') }}" style="font-family: 'Montserrat', sans-serif">Logout</a>         
     {% endif %}
 </div>
 
