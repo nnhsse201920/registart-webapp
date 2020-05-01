@@ -4,18 +4,11 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
 from app.models import *
-import pymysql
-
-dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html', title='About', current_user=current_user)
-
-@app.route('/survey')
-def survey():
-    return render_template('survey.html', title='Survey')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -88,11 +81,10 @@ def connections():
 def relationships():
     if current_user.is_anonymous:
         return redirect(url_for('index'))
-    cursor = dbConnect.cursor()
-    cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
-    stuNames = cursor.fetchall()
-    stuNames = [i[0] for i in stuNames]
     user = Organizers.query.filter_by(username=current_user.username).first()
+    stuNames = []
+    for i in Students.query.all():
+        stuNames.append(i.firstN + " " + i.lastN)
     return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
 
 @app.route('/survey/rankings', methods=['GET','POST'])
