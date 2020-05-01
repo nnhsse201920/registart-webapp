@@ -145,14 +145,14 @@ def students():
             if namePresent == False:
                 student = Connection(firstN=firstN,lastN=lastN)
                 user.relationships.append(student)
-            db.session.commit()   
+                db.session.commit()   
         elif value == "0": # if user says 'No'
             for i in user.relationships:
                 if firstN == i.firstN and lastN == i.lastN:
                     student = Connection.query.filter_by(firstN=firstN,lastN=lastN,user_id=user.id).first()   
                     user.relationships.remove(student)
                     db.session.delete(student)
-            db.session.commit()         
+                    db.session.commit()         
     return ""
 
 @app.route('/survey/end', methods=['GET', 'POST'])
