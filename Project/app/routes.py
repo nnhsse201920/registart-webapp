@@ -113,13 +113,16 @@ def studentrankings():
     if request.method == "POST":
         relations = user.relationships
         name = request.data.decode("utf-8").split()
+        firstN = name[0]
+        lastN = name[1]
+        value = name[len(name)-1]
         for i in relations:
-            if (name[0] == i.firstN and name[1] == i.lastN) and i.user_id == user.id:
-                if name[len(name)-1] == "1":
+            if (firstN == i.firstN and lastN == i.lastN) and i.user_id == user.id:
+                if value == "1":
                     i.ranking = 1
-                elif name[len(name)-1] == "2":
+                elif value == "2":
                     i.ranking = 2
-                elif name[len(name)-1] == "3":
+                elif value == "3":
                     i.ranking = 3
                 else:
                     i.ranking = 4
@@ -131,26 +134,25 @@ def students():
     user = Organizers.query.filter_by(username=current_user.username).first()
     if request.method == "POST":
         name = request.data.decode("utf-8").split()
-        if name[len(name)-1] == "1":
-            for s in Students.query.all():
-                if s.firstN == name[0] and s.lastN == name[1]:
-                    namePresent = False
-                    for u in user.relationships:
-                        if s.firstN == u.firstN and s.lastN == u.lastN:
-                            namePresent = True
-                    if namePresent == False:
-                        student = Connection(firstN=s.firstN,lastN=s.lastN)
-                        user.relationships.append(student)
-                    db.session.commit()   
-        elif name[len(name)-1] == "0":
-            for s in Students.query.all():
-                if s.firstN == name[0] and s.lastN == name[1]:
-                    for u in user.relationships:
-                        if s.firstN == u.firstN and s.lastN == u.lastN:
-                            student = Connection.query.filter_by(firstN=s.firstN,lastN=s.lastN,user_id=user.id).first()   
-                            user.relationships.remove(student)
-                            db.session.delete(student)
-                    db.session.commit()         
+        firstN = name[0]
+        lastN = name[1]
+        value = name[len(name)-1]
+        if value == "1": # if user says 'Yes'
+            namePresent = False
+            for i in user.relationships:
+                if firstN == i.firstN and lastN == i.lastN:
+                    namePresent = True
+            if namePresent == False:
+                student = Connection(firstN=firstN,lastN=lastN)
+                user.relationships.append(student)
+            db.session.commit()   
+        elif value == "0": # if user says 'No'
+            for i in user.relationships:
+                if firstN == i.firstN and lastN == i.lastN:
+                    student = Connection.query.filter_by(firstN=firstN,lastN=lastN,user_id=user.id).first()   
+                    user.relationships.remove(student)
+                    db.session.delete(student)
+            db.session.commit()         
     return ""
 
 @app.route('/survey/end', methods=['GET', 'POST'])
