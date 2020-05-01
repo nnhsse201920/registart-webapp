@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+    webapp:
+        build: ./Project
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./Project/app:/home/registart-webapp/app:rw
+            - ./Project/migrations:/home/registart-webapp/migrations:rw
