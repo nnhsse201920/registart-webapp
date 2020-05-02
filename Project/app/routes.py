@@ -4,6 +4,9 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
 from app.models import *
+import pymysql
+
+dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 @app.route('/')
 @app.route('/index')
