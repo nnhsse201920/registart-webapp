@@ -11,7 +11,7 @@ dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Home', current_user=current_user)
+    return render_template('index.html', title='RegiStart Home', current_user=current_user)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
