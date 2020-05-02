@@ -3,6 +3,21 @@
 {% block styles %}
 {{ super() }}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chevron {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            color: black;
+            }
+        .chevron:hover {
+            background-color: #ddd;
+            color: black;
+            cursor: pointer;
+            }
+    </style>
 {% endblock %}
 
 {% block app_content %}
@@ -21,7 +36,13 @@
                 
             <hr>
             <form action="{{url_for('relationships')}}" method="post" name="relationshipsform"></form>
-                <center><h3 id="studentName" style="margin-top: 35px"></h3></center>
+                <center>
+                    <div>
+                        <div class="chevron" id="previous" style="margin-bottom: 5px;">&#8249;</div>
+                        <h3 id="studentName" style="margin-top: 35px;display: inline-block; width:375px;"></h3>
+                        <div class="chevron" id="next" style="margin-bottom: 5px;">&#8250;</div>
+                    </div>
+                </center>
                 <button id="yes" class='btn btn-success' style="margin-top: 25px; margin-bottom: 25px; width: 100px;font-family:'Montserrat', sans-serif;" onclick="move()">
                     Yes
                 </button>
@@ -41,10 +62,9 @@
                                 req.open("POST",'/students',true)
                                 req.setRequestHeader('Content-Type','application/json');
                                 req.send(document.getElementById("studentName").innerText + " " + "1");}
-                            num++;
-                            if (num < studentList.length){               
-                                document.getElementById("studentName").innerText = studentList[num]
-                        }
+                            if (num < studentList.length-1){   
+                                num++; }
+                            document.getElementById("studentName").innerText = studentList[num]
                         });
                         $("#no").click(function(){  
                             if (num < studentList.length){
@@ -52,10 +72,19 @@
                                 req.open("POST",'/students',true)
                                 req.setRequestHeader('Content-Type','application/json');
                                 req.send(document.getElementById("studentName").innerText + " " + "0");}
-                            num++;   
-                            if (num < studentList.length) {                          
-                                document.getElementById("studentName").innerText = studentList[num]
-                        }
+                            if (num < studentList.length-1) {   
+                                num++; }
+                            document.getElementById("studentName").innerText = studentList[num]
+                        });
+                        $("#next").click(function(){  
+                            if (num < studentList.length-1) {    
+                                num++; }
+                            document.getElementById("studentName").innerText = studentList[num]
+                        });
+                        $("#previous").click(function(){    
+                            if (num > 0) {    
+                                num--;   }
+                            document.getElementById("studentName").innerText = studentList[num]
                         });
                         $(document).focus();                      
                         $(document).keydown(function(e){
