@@ -8,7 +8,7 @@ from app.models import *
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='About', current_user=current_user)
+    return render_template('index.html', title='Home', current_user=current_user)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -25,7 +25,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+    return render_template('login.html', title='Organizer Sign In', form=form)
 
 @app.route('/logout')
 def logout():
@@ -44,7 +44,7 @@ def register():
         db.session.commit()
         login_user(user)
         return redirect(url_for('index'))
-    return render_template('register.html', title='Get Started', form=form)
+    return render_template('register.html', title='Account Creation', form=form)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
@@ -74,7 +74,7 @@ def connections():
     form = ConnectionsForm()
     if form.validate_on_submit():
         return redirect(url_for('relationships'))
-    return render_template('connections.html', title='Connections', isOnSurvey=True,form=form)
+    return render_template('connections.html', title='Personal Connections', isOnSurvey=True,form=form)
 
 @app.route('/survey/relationships', methods=['GET', 'POST'])
 @login_required
@@ -85,7 +85,7 @@ def relationships():
     stuNames = []
     for i in Students.query.all():
         stuNames.append(i.firstN + " " + i.lastN)
-    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
+    return render_template('relationships.html', title='Senior Relationships', isOnSurvey=True, stuNames=stuNames)
 
 @app.route('/survey/rankings', methods=['GET','POST'])
 @login_required
@@ -97,7 +97,7 @@ def rankings():
     userRelationships = user.relationships
     for u in userRelationships:
         students.append(u.firstN + " " + u.lastN)
-    return render_template('rankings.html', title = 'Rankings', isOnSurvey=True, students=students)
+    return render_template('rankings.html', title = 'Relationship Strengths', isOnSurvey=True, students=students)
 
 @app.route('/studentrankings', methods=['GET','POST'])
 def studentrankings():
