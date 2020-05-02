@@ -61,8 +61,8 @@ class Students(UserMixin, db.Model):
     firstN = db.Column(db.VARCHAR(255), index=True)
     lastN = db.Column(db.VARCHAR(255), index=True)
     targetID = db.Column(db.VARBINARY(255), index=True, unique=True)
-    organizationID = db.Column(db.Integer(), index=True, unique=True)
-    isOrganizer = db.Column(db.SmallInteger(), index=True, unique=True)          
+    organizationID = db.Column(db.Integer(), index=True)
+    isOrganizer = db.Column(db.SmallInteger(), index=True)          
 
 @login.user_loader
 def load_user(id):
