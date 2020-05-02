@@ -4,18 +4,11 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import *
 from app.models import *
-import pymysql
-
-dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='About', current_user=current_user)
-
-@app.route('/survey')
-def survey():
-    return render_template('survey.html', title='Survey')
+    return render_template('index.html', title='Home', current_user=current_user)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -32,7 +25,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+    return render_template('login.html', title='Organizer Sign In', form=form)
 
 @app.route('/logout')
 def logout():
@@ -51,7 +44,7 @@ def register():
         db.session.commit()
         login_user(user)
         return redirect(url_for('index'))
-    return render_template('register.html', title='Get Started', form=form)
+    return render_template('register.html', title='Account Creation', form=form)
 
 @app.route('/survey/activities',methods=['GET', 'POST'])
 @login_required
@@ -81,19 +74,18 @@ def connections():
     form = ConnectionsForm()
     if form.validate_on_submit():
         return redirect(url_for('relationships'))
-    return render_template('connections.html', title='Connections', isOnSurvey=True,form=form)
+    return render_template('connections.html', title='Personal Connections', isOnSurvey=True,form=form)
 
 @app.route('/survey/relationships', methods=['GET', 'POST'])
 @login_required
 def relationships():
     if current_user.is_anonymous:
         return redirect(url_for('index'))
-    cursor = dbConnect.cursor()
-    cursor.execute("SELECT CONCAT(firstN, ' ', lastN) as fullName FROM students ORDER BY firstN")
-    stuNames = cursor.fetchall()
-    stuNames = [i[0] for i in stuNames]
     user = Organizers.query.filter_by(username=current_user.username).first()
-    return render_template('relationships.html', title='Relationships', isOnSurvey=True, stuNames=stuNames)
+    stuNames = []
+    for i in Students.query.all():
+        stuNames.append(i.firstN + " " + i.lastN)
+    return render_template('relationships.html', title='Senior Relationships', isOnSurvey=True, stuNames=stuNames)
 
 @app.route('/survey/rankings', methods=['GET','POST'])
 @login_required
@@ -105,7 +97,7 @@ def rankings():
     userRelationships = user.relationships
     for u in userRelationships:
         students.append(u.firstN + " " + u.lastN)
-    return render_template('rankings.html', title = 'Rankings', isOnSurvey=True, students=students)
+    return render_template('rankings.html', title = 'Relationship Strengths', isOnSurvey=True, students=students)
 
 @app.route('/studentrankings', methods=['GET','POST'])
 def studentrankings():
