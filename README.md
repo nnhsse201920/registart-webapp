@@ -24,7 +24,7 @@ The application also uses the official [Bootstrap](https://getbootstrap.com/docs
 JQuery is used to power the functionality of the Activities and Relationships page which allows for the survey process to be much faster.
 
 ### Activities Page
-The number of activities that the organizer chooses to enter is all up to them as the app uses something called a SelectMultipleField: an input field where the user can search up the activities that they want and select multiple of them at once. The builtin SelectMultipleField in Flask is overhauled by an external library called [Select2](select2.org) with BootStrap.
+The number of activities that the organizer chooses to enter is all up to them as the app uses something called a SelectMultipleField: an input field where the user can search up the activities that they want and select multiple of them at once. The builtin SelectMultipleField in Flask is overhauled by an external library called [Select2](select2.org).
 
 ### Relationships Page
 The relationships page uses a cycling system powered by JQuery. Each name of the  senior class is displayed on the screen one at a time and there is a binary choice system where the user can click 'Yes' or 'No' if they know them. The next name immediately appears after clicking. This cycling system greatly expedites the process of filtering out the senior class to find students that the organizer knows. There are arrow (< and >) buttons to the side of the displayed name which allows organizers to go back and change their decision if they made a mistake.
