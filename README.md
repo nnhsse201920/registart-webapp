@@ -93,8 +93,8 @@ The terminal then displays a link to localhost (A local server) <br/>
 ``` 
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
+The Flask server runs on port 5000.  <br/>
 Do CTRL+LMB to launch the link and run the application and the RegiStart landing page will display. <br/>
-The Flask server runs on
 
 ## Team Members
 * Tom Carsello
