@@ -1,4 +1,4 @@
-# Registart Survey Web App
+# RegiStart Survey Web App
 
 ## Table of contents
 * [Overview](#overview)
