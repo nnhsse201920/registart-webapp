@@ -9,7 +9,7 @@
 * [Running the Application](#running-the-application)
 
 # Overview
-This web application is a brief and simple survey for student organizers of the RegiStart program. Taking this survey will generate a list of personalized targets for the organizer which will can be viewed on the RegiStart mobile app.
+This web application is a brief and simple survey for student organizers of the RegiStart program. Taking this survey will generate a list of personalized targets for the organizer which can be viewed on the RegiStart mobile app.
 
 # What it Does
 Student organizers will first enter however many activities that they are committed to at their school or organization. They will then filter out the students they know out of their entire senior class through a quick and seamless process. This will narrow the names down to where the organizer can indicate their relationship strength for the people they are familiar with.
