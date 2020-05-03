@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<body>
+    <div class="container">
+        <center><h1 id="aboutHeader">Server Error 500</h1>
+        <h3>Sorry, something went wrong on our end. We will try to fix the problem.</h3>
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-large" role="button" style="margin-bottom: 25px;margin-top: 50px;font-family:'Montserrat', sans-serif;font-size:24px;">Return Home</a>  
+        </center>
+    </div>
+</body>
+{% endblock %}
