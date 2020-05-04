@@ -53,16 +53,12 @@ To setup this project, ensure that [Python](https://www.python.org/) and its res
 
 Working directory: ``\Users\[USER]\Documents\GitHub\registart-webapp`` <br/>
 
-<strong>Through a terminal:</strong><br/>
-Open a terminal and ``cd`` to the 'Project' folder<br/>
+### Creating the necessary Docker images
+Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
 
-<strong>Through VSCode:</strong><br/>
-Open VSCode and click 'Open Folder' <br/>
-Navigate to the project path:  ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
-
-<strong>Creating a Docker image of the database: </strong>  ``docker-compose --build db`` <br/>
-<strong>Creating a Docker image of the application: </strong>  ``docker-compose --build webapp`` <br/>
-<strong>Creating a Docker image of phpmyadmin: </strong>  ``docker-compose --build app`` <br/>
+<strong>Database: </strong>  ``docker-compose --build db`` <br/>
+<strong>Application: </strong>  ``docker-compose --build webapp`` <br/>
+<strong>Phpmyadmin: </strong>  ``docker-compose --build app`` <br/>
 
 # Running the Application
 The application runs on port 80. <br/>
