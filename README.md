@@ -53,7 +53,7 @@ To setup this project, ensure that [Python](https://www.python.org/) and its res
 
 Working directory: ``\Users\[USER]\Documents\GitHub\registart-webapp`` <br/>
 
-### Creating the necessary Docker images for the FIRST time
+### Building the necessary Docker images for the FIRST time
 Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
 
 <strong>Database: </strong>  ``docker-compose up --build db`` <br/>
@@ -62,14 +62,12 @@ Open up a new terminal for each image, and run a command in each one dedicated t
 
 # Running the Application
 
-### Setting up Docker containers after the first time
+### Setting up Docker containers AFTER building them
 <strong>Database: </strong>  ``docker-compose up db`` <br/>
 <strong>Application: </strong>  ``docker-compose up webapp`` <br/>
 <strong>Phpmyadmin: </strong>  ``docker-compose up app`` <br/>
 
 Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
-
-To stop all containers, run the command: ``docker-compose down ``
 
 ### Launching the app
 
