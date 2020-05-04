@@ -24,12 +24,15 @@ The application also uses the official [Bootstrap](https://getbootstrap.com/docs
 JQuery is used to power the functionality of the Activities and Relationships page which allows for the survey process to be much faster.
 
 ### Activities Page
+![image](https://github.com/nnhsse201920/registart-webapp/blob/master/Page%20Screenshots/activities.png) <br/>
 The number of activities that the organizer chooses to enter is all up to them as the app uses something called a SelectMultipleField: an input field where the user can search up the activities that they want and select multiple of them at once. The builtin SelectMultipleField in Flask is overhauled by an external library called [Select2](select2.org).
 
 ### Relationships Page
+![image](https://github.com/nnhsse201920/registart-webapp/blob/master/Page%20Screenshots/relationships.png) <br/>
 The relationships page uses a cycling system powered by JQuery. Each name of the  senior class is displayed on the screen one at a time and there is a binary choice system where the user can click 'Yes' or 'No' if they know them. The next name immediately appears after clicking. This cycling system greatly expedites the process of filtering out the senior class to find students that the organizer knows. There are arrow (< and >) buttons to the side of the displayed name which allows organizers to go back and change their decision if they made a mistake.
 
 ### Relationship Rankings Page
+![image](https://github.com/nnhsse201920/registart-webapp/blob/master/Page%20Screenshots/rankings.png) <br/>
 The rankings page uses the same cycling system as the previous one. The page prompts the user to indicate how well they know each of the students that they said 'Yes' to. There are 4 options to choose from: Very Well, Well, Somewhat, and Not Much. Each of this has an integral value (1-4) associated with it and will be assigned to the student that they select it for. Upon selecting a choice, the next name will immediately be displayed. There are also arrow (< and >) buttons to the side of the displayed name which allows organizers to go back and change their decision if they made a mistake.
 
 ### After the survey
@@ -95,6 +98,8 @@ The terminal then displays a link to localhost (A local server) <br/>
 ```
 The Flask server runs on port 5000.  <br/>
 Do CTRL+LMB to launch the link and run the application and the RegiStart landing page will display. <br/>
+### Landing Page
+![](https://github.com/nnhsse201920/registart-webapp/blob/master/Page%20Screenshots/landing.png)
 
 ## Team Members
 * Tom Carsello
