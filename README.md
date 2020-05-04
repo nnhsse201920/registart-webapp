@@ -69,7 +69,7 @@ Open up a new terminal for each image, and run a command in each one dedicated t
 
 Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
 
-To stop these containers, run the command ``docker-compose down [CONTAINER NAME]``
+To stop all containers, run the command: ``docker-compose down ``
 
 ### Launching the app
 
