@@ -13,7 +13,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: database7
         volumes:
-            - ../database-migration/phpmyadmin/db:/docker-entrypoint-initdb.d/:ro
+            - ./db:/docker-entrypoint-initdb.d/:ro
     app:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
