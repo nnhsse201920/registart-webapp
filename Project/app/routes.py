@@ -6,7 +6,7 @@ from app.forms import *
 from app.models import *
 import pymysql
 
-dbConnect = pymysql.connect("localhost", "registart", "database7", "registart")
+dbConnect = pymysql.connect("db", "registart", "database7", "registart")
 
 @app.route('/')
 @app.route('/index')
