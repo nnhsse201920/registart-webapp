@@ -45,7 +45,7 @@ This data collected from the survey will then be inputted to the high perfomance
 - [VSCode](https://code.visualstudio.com/) 
 - Latest version of [Docker Desktop](https://www.docker.com/products/docker-desktop) (Windows Pro editions)
 - Latest version of [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows)  (Windows consumer editions)
-- [Python 3.0 or above](python.org)
+- [Python 3.0 or above](https://www.python.org/)
 
 
 # Configuration 
@@ -60,12 +60,12 @@ Open a terminal and ``cd`` to the 'Project' folder<br/>
 Open VSCode and click 'Open Folder' <br/>
 Navigate to the project path:  ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
 
-<strong>Creating a Docker image of the database: </strong>  ``docker-compose --build db``
-<strong>Creating a Docker image of the application: </strong>  ``docker-compose --build webapp``
-<strong>Creating a Docker image of phpmyadmin: </strong>  ``docker-compose --build app``
+<strong>Creating a Docker image of the database: </strong>  ``docker-compose --build db`` <br/>
+<strong>Creating a Docker image of the application: </strong>  ``docker-compose --build webapp`` <br/>
+<strong>Creating a Docker image of phpmyadmin: </strong>  ``docker-compose --build app`` <br/>
 
 # Running the Application
-The application runs on port 80
+The application runs on port 80. <br/>
 Go to [127.0.0.1](http://127.0.0.1/) or [localhost](localhost) to view the main page.
 
 ### Main Page
