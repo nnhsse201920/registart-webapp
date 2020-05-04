@@ -56,9 +56,9 @@ Working directory: ``\Users\[USER]\Documents\GitHub\registart-webapp`` <br/>
 ### Creating the necessary Docker images
 Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
 
-<strong>Database: </strong>  ``docker-compose --build db`` <br/>
-<strong>Application: </strong>  ``docker-compose --build webapp`` <br/>
-<strong>Phpmyadmin: </strong>  ``docker-compose --build app`` <br/>
+<strong>Database: </strong>  ``docker-compose up --build db`` <br/>
+<strong>Application: </strong>  ``docker-compose up --build webapp`` <br/>
+<strong>Phpmyadmin: </strong>  ``docker-compose up --build app`` <br/>
 
 # Running the Application
 The application runs on port 80. <br/>
