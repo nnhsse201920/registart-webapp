@@ -23,6 +23,8 @@ The application also uses the official [Bootstrap](https://getbootstrap.com/docs
 
 JQuery is used to power the functionality of the Activities and Relationships page which allows for the survey process to be much faster.
 
+The app uses a Docker container to simplify the process of setting it up.
+
 ### Activities Page
 ![image](https://github.com/nnhsse201920/registart-webapp/blob/master/Page%20Screenshots/activities.png) <br/>
 The number of activities that the organizer chooses to enter is all up to them as the app uses something called a SelectMultipleField: an input field where the user can search up the activities that they want and select multiple of them at once. The builtin SelectMultipleField in Flask is overhauled by an external library called [Select2](select2.org).
@@ -43,13 +45,14 @@ This data collected from the survey will then be inputted to the high perfomance
 - [VSCode](https://code.visualstudio.com/) 
 - Latest version of [Docker Desktop](https://www.docker.com/products/docker-desktop) (Windows Pro editions)
 - Latest version of [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows)  (Windows consumer editions)
+- [Python 3.0 or above](python.org)
 
 
 # Configuration 
 To setup this project, ensure that [Python](https://www.python.org/) and its respective [VSCode extension](https://code.visualstudio.com/docs/python/python-tutorial) are installed. <br/>
 
-Project path: ``\Users\[USER]\Documents\GitHub\registart-webapp\Project`` <br/>
-<br/>
+Working directory: ``\Users\[USER]\Documents\GitHub\registart-webapp`` <br/>
+
 <strong>Through a terminal:</strong><br/>
 Open a terminal and ``cd`` to the 'Project' folder<br/>
 
@@ -57,48 +60,15 @@ Open a terminal and ``cd`` to the 'Project' folder<br/>
 Open VSCode and click 'Open Folder' <br/>
 Navigate to the project path:  ``\Users\[USER]\Documents\GitHub\registart-webapp\Project``
 
-<strong>Creating a virtual environment:</strong><br/>
-Flask Applications needs a virtual environment to run.  <br/>
-If you are in VSCode, click on 'Terminal' on the top of the window and open a new terminal. <br/>
-Input the following commands into the terminal to set up a virtual environment: <br/>
-
-<br/><strong>Windows:</strong><br/>
-```
-$ python -m venv venv       # create a virtual environment for Python 
-$ venv\scripts\activate     # activate the virtual environment  
-(venv) $ pip install -r requirements.txt    # install all the packages needed for the app to run
-```
-
-<strong>MacOS X:</strong><br/>
-```
-$ python3 -m venv venv 
-$ source venv/bin/activate 
-(venv) $ pip3 install -r requirements.txt 
-```
+<strong>Creating a Docker image of the database: </strong>  ``docker-compose --build db``
+<strong>Creating a Docker image of the application: </strong>  ``docker-compose --build webapp``
+<strong>Creating a Docker image of phpmyadmin: </strong>  ``docker-compose --build app``
 
 # Running the Application
-In the terminal, input the following commands.<br/>
+The application runs on port 80
+Go to [127.0.0.1](http://127.0.0.1/) or [localhost](localhost) to view the main page.
 
-<strong>Step 1:</strong> Start databases in Docker container from [Database GitHub Repository](https://github.com/nnhsse201920/database-migration)
-* NOTE: Only build the image on the first run. Rebuilding the image on future runs will clear the contents of the database. 
-
-<strong>First Run ONLY - Initialize Database</strong><br/>
-```
-(venv) $ flask db init
-(venv) $ flask db migrate
-(venv) $ flask db upgrade
-```
-<br/><strong>Starting the server: </strong><br/>
-```
-(venv) $ flask run
-```
-The terminal then displays a link to localhost (A local server) <br/>
-``` 
-* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-```
-The Flask server runs on port 5000.  <br/>
-Do CTRL+LMB to launch the link and run the application and the RegiStart landing page will display. <br/>
-### Landing Page
+### Main Page
 ![](https://github.com/nnhsse201920/registart-webapp/blob/master/Page%20Screenshots/landing.png)
 
 ## Team Members
