@@ -1,11 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
---
--- Host: db
--- Generation Time: May 05, 2020 at 01:52 AM
--- Server version: 8.0.20
--- PHP Version: 7.4.5
+-- Table structure for table assignments'	SET time_zone = "+00:00";
+--	
+DROP DATABASE IF EXISTS registart;	
+CREATE DATABASE registart;	
+CREATE USER 'registart'@'%' identified by 'database7';	
+GRANT ALL PRIVILEGES on registart.* to 'registart'@'%';	
+use registart;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
