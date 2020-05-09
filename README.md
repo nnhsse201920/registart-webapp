@@ -45,7 +45,7 @@ This data collected from the survey will then be inputted to the high perfomance
 - [VSCode](https://code.visualstudio.com/) 
 - Latest version of [Docker Desktop](https://www.docker.com/products/docker-desktop) (Windows Pro editions)
 - Latest version of [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows)  (Windows consumer editions)
-- [Python 3.0 or above](https://www.python.org/)
+- Latest version of [Python](https://www.python.org/downloads)
 
 
 # Configuration 
