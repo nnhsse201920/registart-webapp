@@ -56,8 +56,8 @@ Working directory: ``\Users\[USER]\Documents\GitHub\registart-webapp`` <br/>
 ### Starting Docker
 Make sure that you follow ALL the instructions for successfully installing Docker Desktop/Toolbox and verifying its installation.
 
-To launch Desktop,  simply click its icon.
-For Docker Toolbox, start Kitematic.
+Docker Desktop can be easily launched from the desktop or the programs menu. <br/>
+For Docker Toolbox, start Kitematic. <br/>
 
 ### Building the necessary Docker images for the FIRST time
 Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
