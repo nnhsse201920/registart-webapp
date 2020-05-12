@@ -53,6 +53,12 @@ To setup this project, ensure that [Python](https://www.python.org/) and its res
 
 Working directory: ``\Users\[USER]\Documents\GitHub\registart-webapp`` <br/>
 
+### Starting Docker
+Make sure that you follow ALL the instructions for successfully installing Docker Desktop/Toolbox and verifying its installation.
+
+To launch Desktop,  simply click its icon.
+For Docker Toolbox, start Kitematic.
+
 ### Building the necessary Docker images for the FIRST time
 Open up a new terminal for each image, and run a command in each one dedicated to it. (e.g. Run database command in one terminal, application in another)
 
